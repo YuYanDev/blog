@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="欢迎来访毓彦的小站！这里会记录毓彦在学习中遇到的困难和总结的经验，也会记录一些碎碎念。如果你喜欢我的网站，欢迎使用订阅网站。网站会不定期的加装一些实验性功能。关于隐私方面，此网站只有Google和Disqus会记录Cookie，服务器不记录任何数据。"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="毓彦">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://www.yuyanlab.com/page/2/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-110530597-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 毓彦 - 欢迎来访毓彦的小站！这里会记录毓彦在学习中遇到的困难和总结的经验，也会记录一些碎碎念。如果你喜欢我的网站，欢迎使用订阅网站。网站会不定期的加装一些实验性功能。关于隐私方面，此网站只有Google和Disqus会记录Cookie，服务器不记录任何数据。 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/." class="logo">毓彦</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/blog/./">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./Link/">
+        <li class="mobile-menu-item">
+          
+          
+            Link
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./about/">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+      <a href=".https://github.com/YuYanDev">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/blog/." class="logo">毓彦</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./Link/">
+            
+            
+              Link
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./about/">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href=".https://github.com/YuYanDev">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/fcgi/">Nginx+FCGI编译安装+TCL/C++/shell的学习/安装调教</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-07-01
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>FCGI虽然是上个世纪的东西，但是缺了还真不行。在FCGI的编译安装方面Google都无法找到相关笔记文档。在经历了一下午的折磨后，才安装上了。我觉得应该写成笔记，帮助更多人少走弯路。</p>
+<p>FCGI存在与epel和Ubuntu等源里，因此，大多数设备都能无痛安装。</p>
+<p>但由于我的是CentOS armv7版的操作系统，不可能使用epel源，由于FCGI缺乏维护，所以在编译过程中，走了很多弯路。</p>
+<p>nginx的安装查看我的上一篇博客的nginx安装部分即可。</p>
+<p>首先我们来搞清楚一下，CGI相关的原理，如何编写相关脚本，以及使用这套组合的意义。</p>
+<h2 id=""><a href="#" class="headerlink" title=""></a>
+          <div class="read-more">
+            <a href="/blog/post/fcgi/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/Kali-raspberry/">Kali在树莓派上的调教笔记</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-06-25
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>一个偶然的时刻，我发现某个地方的IP是开放80和443端口的，那如果不好好利用一下简直太可惜了。当然，人家可是良民，当然会遵守国家的法律法规啦，那废话就不多说了。</p>
+<p>小插曲：好久不用raspbian了，刷好镜像通电后才知道raspbian已经在一年前就已经默认关闭了ssh，没ssh那玩个鬼。</p>
+<p>索性放弃raspbian，那么目前有Ubuntu Mate，Kali OS，Arch Linux三个系统供我选择，Ubuntu Mate也是需要通过显示器设定，故放弃；Arch Linux arm安装需要用到linux的机子；所以选择了Kali OS。<br>
+          <div class="read-more">
+            <a href="/blog/post/Kali-raspberry/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/HBUT-2ACM/">HBUT 2nd ACM Contest</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-05-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>恩，菜鸡和大佬之间的差距不是一天两天能追上的，当然思路正确写不出来是不可原谅的。。。。。。总之，很丢人orz</p>
+<p>虽然都是大部分是水题，但是还是把这部分分享出来吧w</p>
+<p>拿自己的和标程对比，人家的就是写的就是清爽漂亮，哎。。。</p>
+          <div class="read-more">
+            <a href="/blog/post/HBUT-2ACM/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/react-express/">React与Express项目前后端一体化实战</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-05-11
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>在之前的造轮子的过程中，前后端分离开来写实在蛋疼，所以最近决定研究并折腾一下前后端工程一体化。</p>
+<p>在这样的实时的环境中，最重要的是做好前后端之间的协调作用，说白了，也就是路径规划问题与热刷新问题。</p>
+<p>在我的项目中，我选择开发和生产的环境的加载代码制作两份，只有模板，中间件什么的代码的通用。(网上推崇使用env变量来加载热更新组件，但是本人并不推崇全部使用env)</p>
+<p>主要就是分析几项内容，除了工程的路径规划，一是开发代码(app.js)，二是生产代码(server.js)，最后还有模板引擎的调整</p>
+          <div class="read-more">
+            <a href="/blog/post/react-express/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/npm-check/">一个非常好用的npm包管理工具npm-check</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-04-16
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>很多做node.js开发的小伙伴呢都遇到这样一个问题：我全局安装的脚手架，如何升级。或者，我某个项目里，很多组件都大幅更新了，增加了很多好用的新特性，我该如何去升级我所想升级的组件呢。常规使用的npm update呢，又不是很好用。偶然发现了这个好用的工具，分享给大家。</p>
+<p>首先安装 <code>sudo npm install npm-check -g</code></p>
+<p>然后，你就可以在该项目执行<code>npm-check</code>即可查看该项目下的依赖情况和新版的依赖情况，emoji表情意外萌呢~</p>
+<p>它还会检测你在工程里import进的依赖，没有用到的依赖还会提示你去移除它。提示非常丰富。</p>
+<p>// 分割线，首页不放图o(<em>////▽////</em>)q<br>
+          <div class="read-more">
+            <a href="/blog/post/npm-check/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/docker_cn/">在墙内部署docker镜像的正确姿势</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-03-21
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h4 id="说换镜像什么的都是扯淡，根本无法好好使用。"><a href="#说换镜像什么的都是扯淡，根本无法好好使用。" class="headerlink" title="说换镜像什么的都是扯淡，根本无法好好使用。"></a>说换镜像什么的都是扯淡，根本无法好好使用。</h4><p>本文将会告诉你在墙内部署docker应用的正确姿势。</p>
+<h4 id="本文基于Ubuntu-16-04测试环境，大部分具有systemctl的系统都同样可行，适用于物理服务器和云服务器。"><a href="#本文基于Ubuntu-16-04测试环境，大部分具有systemctl的系统都同样可行，适用于物理服务器和云服务器。" class="headerlink" title="本文基于Ubuntu 16.04测试环境，大部分具有systemctl的系统都同样可行，适用于物理服务器和云服务器。"></a>本文基于Ubuntu 16.04测试环境，大部分具有systemctl的系统都同样可行，适用于物理服务器和云服务器。</h4><p>如果你的环境是aliyun ecs请前往<code>/etc/apt/source.list</code>里把所有mirrors.aliyuncs.com的镜像注释掉！</p>
+<p>检查内核是否需要升级 <code>uname -a</code>查看，大于3.16即可。如果小于3.16，可以按照这篇教程换掉你的内核并提升你的服务器性能: <a href="https://emiria.io/post/TCP-BBR/" target="_blank" rel="noopener">https://emiria.io/post/TCP-BBR/</a></p>
+<h4 id="接下来是具体步骤。"><a href="#接下来是具体步骤。" class="headerlink" title="接下来是具体步骤。"></a>接下来是具体步骤。</h4>
+          <div class="read-more">
+            <a href="/blog/post/docker_cn/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/DellR410-BIOS/">Dell R410服务器踩坑总结</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-03-03
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>翘了大学语文课去机房上架服务器被语文老师抓到，这种事情一定是终生难忘的（哭）。</p>
+<p>好了，以下来介绍所踩的坑。</p>
+<p>某202.xxx.xxx.xxx/28的ip是我们社团的服务器所使用，但由于年久失修，宕了只有一台了orz，于是fix的这个任务就落到了我的头上了orz。</p>
+<p>由于是接手的，只留下了一个记录了密码和用户名什么的文档来，只能靠自己摸索，架构是多台Apache+php环境组成的集群和一台数据库服务器组成，具体配置无法测试（基本的命令都缺失，有必要全部重做系统了），内网带宽实测100mbps。但数据库服务器的raid早已坏掉，各种丢数据，唯一剩下来的一台也不敢动，于是，只能贡献出我自己的R410了。</p>
+<p>R410的网卡是博通一种服务器网卡，很可惜Debian初始并不带网卡驱动，需要后续在没网的情况下手动安装，故舍弃Debian。Ubuntu 16.04.2 LTS在写入系统时又发生失败。centos才是最适合R410的系统orz。</p>
+<p>R410集成了非常强大的BIOS和远控卡，然而正是强大，导致了使用不是很方便，个人非常不推荐使用UEFI引导，而且也非常不好用。<br>在不小心按了F10进入了UEFI后，你将会经历漫长的等待，看着<code>Initializing UEFI,Please wait...</code>(&gt;=1hr)，而且极有可能加载失败。所以我们要做的就是，关闭电源，再开启电源，加载完BIOS后迅速按下Ctrl 和E键，进入菜单，进入System Services选项菜单里并把它关掉。保存退出，继续加载bios的过程中再去F11里选择u盘启动。</p>
+<p>安装完centos后有个非常恶心的阅读协议，这个只能Good luck了。在实际上架服务器中，我们不可能使用DHCP协议获取ip，只能手动配置ip，在参考另外一台服务器的配置文件后顺利完成了ip的配置，其实图形化界面下的centos配置防火墙很容易23333333</p>
+<p>PS：机房老师中途进来看到raid的配置和机器上4个盘位只插了一块盘有点想笑，我能怎么办，我也没钱买硬盘哇(╯‵□′)╯︵┻━┻</p>
+          <div class="read-more">
+            <a href="/blog/post/DellR410-BIOS/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/Omega2-Getstart/">Omega2Plus上手体验</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-02-11
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>好吧，我相信这是国内首发上手测评 #(手动滑稽)</p>
+<p>Omega2是onion公司搞出的一款超迷你的IOT设备，体积非常迷你，12月参与的众筹，春节后收到的东西（顺丰发货好评）。</p>
+<p>这款东西最大的特色是小而丰富，而且价格便宜，标准版5$，Plus版是9$，我参与的呢是plus版。</p>
+<p>先来几张低清有码</p>
+<p><img src="/img/Omega2-1.JPG" alt=""></p>
+          <div class="read-more">
+            <a href="/blog/post/Omega2-Getstart/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/first-learning-react-experience/">React.js折腾小计</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-02-08
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>我不会告诉你这篇文章是折腾了ng1，vue，react三大框架之后才写的QvQ</p>
+<p>好了废话不多说了，为什么我会跳入这个坑，最早是因为在express框架中，注册表单在用户填写后得通过post请求传回到后端再写入数据库，然而又不想碰jQuery这个东西，所以想到了用目前流行想这些框架。</p>
+<p>一开始是用ng1，然后根据phonecat的教程构建出了应用，然而也用了原始的方法，一个angular.js一个angular-router.js再加一个app.js实现的。<br>当然这样被 <a href="http://blog.zhangrgk.ninja" target="_blank" rel="noopener">锐神</a>等dalao吐槽了，于是乎尝试锐神他们较为推荐的vue来构建，但是vue虽然轻量，但是在模板实现上，以及子父绑定上并不友好，并且vue的社区支持并不友好，对于新手来学习上手并不友好，没有手把手的案例来教你做应用，即使，vue推出了vue-cli这个东西，然而，由于太多报错不知道如何解决，故放弃，最后采用了react实现了项目，并熟悉了webpack打包模式。</p>
+<p>这个项目呢，是一个不依托后端程序的单页应用，（导航站），为什么不直接写死html呢，废话！当然是为了便于维护(╯‵□′)╯︵┻━┻，同时也是为了后期升级做打算，因为，未来打算做成一个综合门户，页眉页脚直接写死html，到content里在调用react形成app，content目前只是通过几个路由，每个路由下get一个json，列出导航条目，后期的话，把菜单导航升级成二级的，就可以调用比如论坛等的api实现一个综合门户。</p>
+<p>react的hash路由系统默认会抛出一个 “? k=xxxxx”的东西，google一圈，so上有大佬解释说这是为了方便判断什么时候点的某个链接，也有相应的隐藏的解决方案。<br>但是窝不打算隐藏，url嘛，总要带些 &amp;?_ 什么的才有逼格嘛2333333。</p>
+<p>webpack打包模式非常赞，尽管他给我打包出个32k行的js…，但webpack用得不是特别熟悉的情况下，不要乱import进css。（包括我<em>(:з」∠)</em> ）</p>
+<p>react目前才学习了冰山一角，开学后继续学习，该应用也很快将会上线，下一篇博文会写一下该应用的实现ovo。</p>
+<p>PS：jsx的写法实在太赞了！另外webpack -p后不要在编辑器里乱点编译好的js（。别问我为什么Orz）</p>
+          <div class="read-more">
+            <a href="/blog/post/first-learning-react-experience/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/WelcomeTo2017/">你好2017</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-01-01
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>欢迎2017的到来，祝大家新年快乐o(* ≧▽≦)ツ</p>
+<p>在2016这段时间里，我没什么拿得出手的东西，博客更新慢了许多，主要还是没有多少时间来折腾。<br>花了大量时间应付高数和英语，却没取得什么成绩，险些挂科，花在计算机上的时间也不多，除了学习到了很多c语言的知识外，也学了一些nodejs，尝试使用express框架写了些东西，也学到了一些关于jQuery的知识，但离生产还差得很远很远，感觉有些迷茫。<br>当然，我也结识一些dalao朋友，通过交流讨论学到了很多。</p>
+<p>2017，一起加油吧！<br>
+          <div class="read-more">
+            <a href="/blog/post/WelcomeTo2017/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    
+      <a class="prev" href="/blog/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/blog/page/3/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/YuYan_zh" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/YuYanDev" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/blog/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">毓彦</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/blog/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/blog/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Centos安装Munin服务器监控系统"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="毓彦">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://www.yuyanlab.com/post/Munin-setup/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-110530597-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> Centos安装Munin服务器监控系统 - 毓彦 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/." class="logo">毓彦</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/blog/./">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./Link/">
+        <li class="mobile-menu-item">
+          
+          
+            Link
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./about/">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+      <a href=".https://github.com/YuYanDev">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/blog/." class="logo">毓彦</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./Link/">
+            
+            
+              Link
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./about/">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href=".https://github.com/YuYanDev">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Centos安装Munin服务器监控系统
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-12-31
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>为什么窝选择Munin系统，原因很简单，安全，轻量快速，可分析性强。</p>
+<p>其实很多开源镜像站和一些老网站都采用这个系统，历史悠久，占用小，各种强悍的图表</p>
+<p>Munin分为监控机软件(munin)和被监控机软件(munin-node),两个，其中一台机器上必须都安装（作为监控机）其余机器安装munin-node即可</p>
+<p>安装非常简单。munin基于Perl，我们应该先装好perl全家桶。由于rrdtool在epel源里才有，所以我们应该提前设置epel源。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install munin munin-common munin-node rrdtool</span><br></pre></td></tr></table></figure></p>
+<p>这是两个非常重要的配置文件位置，关于如何增加节点在配置文件里都有配置说明和例子<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/etc/munin/munin.conf  #主监控机配置</span><br><span class="line">/etc/munin/munin-node.conf  #节点机器配置</span><br></pre></td></tr></table></figure></p>
+<p>有关nginx访问也很简单，munin安装好后，默认已经生成在<code>/var/www/html/munin/</code>下，我们只需把网站配置文件的location指向这个目录即可</p>
+<p>munin默认记录监控日志，并自动压缩储存在<code>/var/log/munin</code>下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service munin-node start</span><br></pre></td></tr></table></figure>
+<p>我在使用中发现一个巨大问题，就是网页不会刷新，于是尝试手动刷新<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/usr/bin/munin-cron</span><br></pre></td></tr></table></figure></p>
+<p>但是返回这个错误<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">This program will easily break if you run it as root as you are</span><br><span class="line">trying now.  Please run it as user &apos;nobody&apos;.  The correct &apos;su&apos; command</span><br><span class="line">on many systems is &apos;su - munin --shell=/bin/bash&apos;</span><br><span class="line">Aborting.</span><br></pre></td></tr></table></figure></p>
+<p>OK,我们切换到munin用户，当再次执行的时候，又报错<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[ERROR] Could not copy contents from /etc/munin/static/ to /[path to static file] at /usr/share/perl5/vendor_perl/Munin/Master/HTMLOld.pm line 716.</span><br></pre></td></tr></table></figure></p>
+<p>Google一圈，找到解决方案<a href="http://serverfault.com/questions/605226/munin-cron-unable-to-copy-contents" target="_blank" rel="noopener">http://serverfault.com/questions/605226/munin-cron-unable-to-copy-contents</a><br>明显是epel源那堆打包的工程师粗心好不好orz，好在可以结决了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">su - munin --shell=/bin/bash  #切换到munin用户</span><br><span class="line">chown -R munin:munin  /var/www/html/munin  #更改权限</span><br><span class="line">exit #返回root用户</span><br></pre></td></tr></table></figure>
+<p>等五分钟你就可以看到正常刷新了</p>
+<p>默认监听端口4949，多机集群别忘了放行端口。<br><a id="more"></a></p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://www.yuyanlab.com">毓彦</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://www.yuyanlab.com/post/Munin-setup/">https://www.yuyanlab.com/post/Munin-setup/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/blog/post/WelcomeTo2017/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">你好2017</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/blog/post/Aliyun-Bad-Work-Order/">
+        <span class="next-text nav-default">关于阿里云糟糕的工单服务</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">使用评论请正确连接互联网，自主开发评论很快上线
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/YuYan_zh" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/YuYanDev" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/blog/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">毓彦</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://www.yuyanlab.com/post/Munin-setup/';
+        this.page.identifier = 'post/Munin-setup/';
+        this.page.title = 'Centos安装Munin服务器监控系统';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//alleysakura.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/blog/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/blog/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

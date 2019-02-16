@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="在墙内部署docker镜像的正确姿势"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="毓彦">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://www.yuyanlab.com/post/docker_cn/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-110530597-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 在墙内部署docker镜像的正确姿势 - 毓彦 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/." class="logo">毓彦</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/blog/./">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./Link/">
+        <li class="mobile-menu-item">
+          
+          
+            Link
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./about/">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+      <a href=".https://github.com/YuYanDev">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/blog/." class="logo">毓彦</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./Link/">
+            
+            
+              Link
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./about/">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href=".https://github.com/YuYanDev">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          在墙内部署docker镜像的正确姿势
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-03-21
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#说换镜像什么的都是扯淡，根本无法好好使用。"><span class="toc-text">说换镜像什么的都是扯淡，根本无法好好使用。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#本文基于Ubuntu-16-04测试环境，大部分具有systemctl的系统都同样可行，适用于物理服务器和云服务器。"><span class="toc-text">本文基于Ubuntu 16.04测试环境，大部分具有systemctl的系统都同样可行，适用于物理服务器和云服务器。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#接下来是具体步骤。"><span class="toc-text">接下来是具体步骤。</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#注意：此方法只在当前tty下有效，重启或开启新的tty或者screen窗口后需要重新执行export配置，关闭unset-http-proxy。"><span class="toc-text">注意：此方法只在当前tty下有效，重启或开启新的tty或者screen窗口后需要重新执行export配置，关闭unset http_proxy。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#关于docker的http代理"><span class="toc-text">关于docker的http代理</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <h4 id="说换镜像什么的都是扯淡，根本无法好好使用。"><a href="#说换镜像什么的都是扯淡，根本无法好好使用。" class="headerlink" title="说换镜像什么的都是扯淡，根本无法好好使用。"></a>说换镜像什么的都是扯淡，根本无法好好使用。</h4><p>本文将会告诉你在墙内部署docker应用的正确姿势。</p>
+<h4 id="本文基于Ubuntu-16-04测试环境，大部分具有systemctl的系统都同样可行，适用于物理服务器和云服务器。"><a href="#本文基于Ubuntu-16-04测试环境，大部分具有systemctl的系统都同样可行，适用于物理服务器和云服务器。" class="headerlink" title="本文基于Ubuntu 16.04测试环境，大部分具有systemctl的系统都同样可行，适用于物理服务器和云服务器。"></a>本文基于Ubuntu 16.04测试环境，大部分具有systemctl的系统都同样可行，适用于物理服务器和云服务器。</h4><p>如果你的环境是aliyun ecs请前往<code>/etc/apt/source.list</code>里把所有mirrors.aliyuncs.com的镜像注释掉！</p>
+<p>检查内核是否需要升级 <code>uname -a</code>查看，大于3.16即可。如果小于3.16，可以按照这篇教程换掉你的内核并提升你的服务器性能: <a href="https://emiria.io/post/TCP-BBR/" target="_blank" rel="noopener">https://emiria.io/post/TCP-BBR/</a></p>
+<h4 id="接下来是具体步骤。"><a href="#接下来是具体步骤。" class="headerlink" title="接下来是具体步骤。"></a>接下来是具体步骤。</h4><a id="more"></a>
+<p>首先 <code>apt-get update</code></p>
+<p>安装screen：<code>apt-get install screen</code><br>建立一个screen窗口：<code>screen -S installDocker</code></p>
+<p>然后，安装配置shadowsocks（没代理玩个鬼）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt-get install python</span><br><span class="line">apt-get install python-pip</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure></p>
+<p>在Ubuntu1604上，可能安装ss会报错：<code>locale.Error: unsupported locale setting</code><br>输入<code>export LC_ALL=C</code>即可。</p>
+<p>在方便的位置建立一个 ss.json并在里面根据实际情况填入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;server&quot;: &quot;11.22.33.44&quot;,</span><br><span class="line">  &quot;server_port&quot;: 40002,</span><br><span class="line">  &quot;local_port&quot;: 1080,</span><br><span class="line">  &quot;password&quot;: &quot;123123123&quot;,</span><br><span class="line">  &quot;timeout&quot;: 600,</span><br><span class="line">  &quot;method&quot;: &quot;aes-256-cfb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>启动shadowssocks<br><code>sslocal -c ss.json -d start</code><br>PS：如果机器重启后需要重新执行</p>
+<p>我们需要一个工具来吧socks5代理转换为http代理&gt;&gt; polipo<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install polipo</span><br></pre></td></tr></table></figure></p>
+<p>修改<code>/etc/polipo/config</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">logSyslog = true</span><br><span class="line">logFile = /var/log/polipo/polipo.log</span><br><span class="line">proxyAddress = &quot;0.0.0.0&quot;</span><br><span class="line">socksParentProxy = &quot;127.0.0.1:1080&quot;</span><br><span class="line">socksProxyType = socks5</span><br><span class="line">chunkHighMark = 50331648</span><br><span class="line">objectHighMark = 16384</span><br><span class="line">serverMaxSlots = 64</span><br><span class="line">serverSlots = 16</span><br><span class="line">serverSlots1 = 32</span><br></pre></td></tr></table></figure></p>
+<p>重启polipo：<code>/etc/init.d/polipo restart</code></p>
+<p>配置代理<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">export http_proxy=&quot;http://127.0.0.1:8123/&quot;</span><br><span class="line">export https_proxy=&quot;http://127.0.0.1:8123/&quot;</span><br></pre></td></tr></table></figure></p>
+<h3 id="注意：此方法只在当前tty下有效，重启或开启新的tty或者screen窗口后需要重新执行export配置，关闭unset-http-proxy。"><a href="#注意：此方法只在当前tty下有效，重启或开启新的tty或者screen窗口后需要重新执行export配置，关闭unset-http-proxy。" class="headerlink" title="注意：此方法只在当前tty下有效，重启或开启新的tty或者screen窗口后需要重新执行export配置，关闭unset http_proxy。"></a>注意：此方法只在当前tty下有效，重启或开启新的tty或者screen窗口后需要重新执行export配置，关闭<code>unset http_proxy</code>。</h3><p>你可以使用 <code>curl myip.ipip.net</code>命令来校验代理是否开启成功。</p>
+<p>这时，你可以愉悦的在全局代理下安装docker了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO- https://get.docker.io/ | sh</span><br></pre></td></tr></table></figure></p>
+<h4 id="关于docker的http代理"><a href="#关于docker的http代理" class="headerlink" title="关于docker的http代理"></a>关于docker的http代理</h4><p>以下docker代理的配置文件摘自docker官网，亲测可行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /etc/systemd/system/docker.service.d</span><br></pre></td></tr></table></figure>
+<p>在<code>/etc/systemd/system/docker.service.d/http-proxy.conf</code>中写入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[Service]</span><br><span class="line">Environment=&quot;HTTP_PROXY=http://127.0.0.1:8123/&quot;</span><br></pre></td></tr></table></figure></p>
+<p>然后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl restart docker</span><br></pre></td></tr></table></figure></p>
+<p>使用<code>systemctl show --property=Environment docker</code>来查看是否写入成功。</p>
+<p>到此为止，应付大部分docker容器应该是够了！</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://www.yuyanlab.com">毓彦</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://www.yuyanlab.com/post/docker_cn/">https://www.yuyanlab.com/post/docker_cn/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/blog/post/npm-check/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">一个非常好用的npm包管理工具npm-check</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/blog/post/DellR410-BIOS/">
+        <span class="next-text nav-default">Dell R410服务器踩坑总结</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">使用评论请正确连接互联网，自主开发评论很快上线
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/YuYan_zh" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/YuYanDev" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/blog/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">毓彦</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://www.yuyanlab.com/post/docker_cn/';
+        this.page.identifier = 'post/docker_cn/';
+        this.page.title = '在墙内部署docker镜像的正确姿势';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//alleysakura.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/blog/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/blog/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

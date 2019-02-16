@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Caddy Server简易使用手册"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="毓彦">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://www.yuyanlab.com/post/CaddyServer/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-110530597-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> Caddy Server简易使用手册 - 毓彦 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/." class="logo">毓彦</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/blog/./">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./Link/">
+        <li class="mobile-menu-item">
+          
+          
+            Link
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./about/">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+      <a href=".https://github.com/YuYanDev">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/blog/." class="logo">毓彦</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./Link/">
+            
+            
+              Link
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./about/">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href=".https://github.com/YuYanDev">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Caddy Server简易使用手册
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-07-16
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-Caddy的安装及配置文件基本写法"><span class="toc-text">1:Caddy的安装及配置文件基本写法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-常用基本组成模块"><span class="toc-text">2:常用基本组成模块</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-传统php-mysql建站"><span class="toc-text">3:传统php+mysql建站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-caddy特色markdown建站"><span class="toc-text">4:caddy特色markdown建站</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-反向代理引入更多后端系统"><span class="toc-text">5:反向代理引入更多后端系统</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p><img src="/img/caddy.jpg" alt=""><br>Caddy Server是一个用golang写的优秀web server，国内用户相对偏少，但我非常喜欢这个东西，所以来做个简易的手册。<br>它有许多nginx和apache没有的功能，不仅具有特色而且非常实用，比如简洁的conf，http/2，markdown渲染等等<br>要说它的缺点，就是效率不如前两者。</p>
+<p>本文会以下几块方面来介绍此服务器</p>
+<ul>
+<li>caddy安装及配置文件基本写法</li>
+<li>基本组成模块</li>
+<li>传统php+mysql建站</li>
+<li>caddy特色markdown建站</li>
+<li>反向代理引入更多后端系统</li>
+</ul>
+<a id="more"></a>
+<h1 id="1-Caddy的安装及配置文件基本写法"><a href="#1-Caddy的安装及配置文件基本写法" class="headerlink" title="1:Caddy的安装及配置文件基本写法"></a>1:Caddy的安装及配置文件基本写法</h1><p>caddy的安装，就是从caddy的官网下载：<a href="https://caddyserver.com/download" target="_blank" rel="noopener">https://caddyserver.com/download</a> 想要什么模块就尽情点上吧2333<br>如果没有官网列表上设备或是有特殊需求的同学，可以参考无闻菊苣的文章自行构建可执行文件：<a href="https://wuwen.org/2015/11/13/caddy-in-action.html" target="_blank" rel="noopener">https://wuwen.org/2015/11/13/caddy-in-action.html</a></p>
+<p>PS:解压时请把压缩包放在一个新文件夹后再解压，别问我为什么QwQ</p>
+<p>然后执行 <code>./caddy</code> 这时候访问<code>localhost:2015</code>就可以测试是否运行起来了，至于持久化运行，有多种方法实现，</p>
+<p>candyserver下载下来的安装包里已经包含各系统启动文件</p>
+<p>博主使用的是使用screen来守护，当然还有更专业的软件实现，比如supservisor和systemd，systemd在无闻菊苣的文章里已经有了，这里提供一份摘自互联网的supservisor的配置文件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[program:caddy]</span><br><span class="line">command=/usr/bin/caddy -conf="/var/www/Caddyfile"  </span><br><span class="line">directory=/var/www        ; directory to cwd to before exec (def no cwd)  </span><br><span class="line">autostart=true                ; start at supervisord start (default: true)  </span><br><span class="line">autorestart=unexpected        ; whether/when to restart (default: unexpected)  </span><br><span class="line">startsecs=1                   ; number of secs prog must stay running (def. 1)  </span><br><span class="line">startretries=3                ; max # of serial start failures (default 3)  </span><br><span class="line">exitcodes=0,2                 ; 'expected' exit codes for process (default 0,2)  </span><br><span class="line">stopsignal=QUIT               ; signal used to kill process (default TERM)  </span><br><span class="line">stopwaitsecs=10               ; max num secs to wait b4 SIGKILL (default 10)  </span><br><span class="line">stopasgroup=false             ; send stop signal to the UNIX process group (default false)  </span><br><span class="line">user=www             ; setuid to this UNIX account to run the program  </span><br><span class="line">redirect_stderr=true          ; redirect proc stderr to stdout (default false)  </span><br><span class="line">stdout_logfile=/var/log/caddy.log        ; stdout log path, NONE for none; default AUTO  </span><br><span class="line">stderr_logfile=/var/log/caddyerr.log        ; stderr log path, NONE for none; default AUTO</span><br></pre></td></tr></table></figure></p>
+<p>caddy的conf写法有好多种，首先你要在caddy的可执行文件的同目录创建一个名叫<code>Caddyfile</code>的文件，或者在启动时加入路径<code>./caddy -conf=&quot;/path/to/Caddyfile&quot;</code><br>接下来是几种caddy的conf的写法，简直辣眼睛</p>
+<p>本地访问80：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">:80</span><br></pre></td></tr></table></figure></p>
+<p>单网站：（它会帮您签好let’s encrypt证书并且强制定向到https）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">example.com</span><br><span class="line">root /var/www/html</span><br><span class="line">//更多模块</span><br></pre></td></tr></table></figure></p>
+<p>多网站：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">example.com &#123;</span><br><span class="line">  gzip</span><br><span class="line">  root /var/www/htm/</span><br><span class="line">  //更多模块</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="2-常用基本组成模块"><a href="#2-常用基本组成模块" class="headerlink" title="2:常用基本组成模块"></a>2:常用基本组成模块</h1><p>均写入到conf站点配置中</p>
+<p>1.log日志<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log /var/www/log/example.log</span><br></pre></td></tr></table></figure></p>
+<p>2.目录访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">browse</span><br></pre></td></tr></table></figure></p>
+<p>3.gzip压缩<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip</span><br></pre></td></tr></table></figure></p>
+<p>4.自主ssl证书<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tls /path/ssl/example.com.crt /path/ssl/example.com.key</span><br></pre></td></tr></table></figure></p>
+<p>5.git拉取功能(3600秒为间隔时间)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git https://github.com/user/project.git /var/www/html/git/ &#123;</span><br><span class="line">  interval 3600</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>6.访问口令认证（用户emiria，密码abc123）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">basicauth / emiria abc123</span><br></pre></td></tr></table></figure></p>
+<p>7.cors跨域(下载时记得勾上)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">cors / &#123;  </span><br><span class="line">    origin            https://alleysakura.com</span><br><span class="line">    origin            http://alleysakura.pw https://alleysakura.pw</span><br><span class="line">    methods           POST,PUT</span><br><span class="line">    allow_credentials false</span><br><span class="line">    max_age           3600</span><br><span class="line">    allowed_headers   X-Custom-Header,X-Foobar</span><br><span class="line">    exposed_headers   X-Something-Special,SomethingElse</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>8.IP屏蔽(下载时记得勾上)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ipfilter / &#123;  </span><br><span class="line">    rule       block</span><br><span class="line">    ip         212.10.15.0-255 202.10.15.0-10 59.43.247.103</span><br><span class="line">    blockpage  /var/www/html/403.html</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>9.跳转功能(目录重写功能也类似)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redir http://example.com&#123;url&#125;</span><br></pre></td></tr></table></figure></p>
+<p>而且不像nginx进行www重定向那么麻烦，把域名原域名（不限协议）写上，大括号里加上这个就可以，简直太赞了</p>
+<p>10.自定义错误页面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">errors &#123;</span><br><span class="line">    404 404.html</span><br><span class="line">    500 /var/www/html/500.html</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="3-传统php-mysql建站"><a href="#3-传统php-mysql建站" class="headerlink" title="3:传统php+mysql建站"></a>3:传统php+mysql建站</h1><p>包管理器安装mysql+php，然后添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fastcgi / 127.0.0.1:9000 php</span><br></pre></td></tr></table></figure></p>
+<h1 id="4-caddy特色markdown建站"><a href="#4-caddy特色markdown建站" class="headerlink" title="4:caddy特色markdown建站"></a>4:caddy特色markdown建站</h1><p>首先载入markdown渲染格式(用index.html来定义，类似swig和ejs模板)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">markdown / &#123;</span><br><span class="line">  template index /path/templates/index.html</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这是一种渲染格式（index.html)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">title</span>&gt;</span>&#123;&#123;.Doc.title&#125;&#125;<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">type</span>=<span class="string">"text/css"</span> <span class="attr">href</span>=<span class="string">"styles/main.css"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">header</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"/"</span>&gt;</span><span class="tag">&lt;<span class="name">h1</span> <span class="attr">class</span>=<span class="string">"page-title"</span>&gt;</span>&#123;&#123;.Doc.sitename&#125;&#125;<span class="tag">&lt;/<span class="name">h1</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">main</span>&gt;</span></span><br><span class="line">            &#123;&#123;range .Links&#125;&#125;</span><br><span class="line">                &#123;&#123;if ne .URL "/index.md" &#125;&#125;</span><br><span class="line">                    <span class="tag">&lt;<span class="name">article</span>&gt;</span></span><br><span class="line">                        <span class="tag">&lt;<span class="name">h3</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"&#123;&#123;.URL&#125;&#125;"</span>&gt;</span>&#123;&#123;.Title&#125;&#125;<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">                        &#123;&#123;.Summary&#125;&#125;</span><br><span class="line">                    <span class="tag">&lt;/<span class="name">article</span>&gt;</span></span><br><span class="line">                &#123;&#123;end&#125;&#125;</span><br><span class="line">            &#123;&#123;end&#125;&#125;</span><br><span class="line">        <span class="tag">&lt;/<span class="name">main</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>接下来，我们只用按照正常的markdown在网站根目录写了（index.md)<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">template: index</span><br><span class="line">title: caddy</span><br><span class="line">sitename: test caddy</span><br><span class="line">---</span><br><span class="line">text 233333333333333333</span><br></pre></td></tr></table></figure></p>
+<p>当然各种html标签也是可以滴，爱怎们玩怎么玩2333333</p>
+<h1 id="5-反向代理引入更多后端系统"><a href="#5-反向代理引入更多后端系统" class="headerlink" title="5:反向代理引入更多后端系统"></a>5:反向代理引入更多后端系统</h1><p>引入反向代理，只需一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">proxy / localhost:4000</span><br></pre></td></tr></table></figure></p>
+<p>负载均衡也是类似配置的23333<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">proxy / 10.10.201.222:80 10.10.201.221:80 &#123;</span><br><span class="line">        policy round_robin</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然caddyserver还有许多不常用的，但是非常好玩的组件，大家可以去官网看看文档，博主也将继续探索~（&gt; y &lt;)</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://www.yuyanlab.com">毓彦</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://www.yuyanlab.com/post/CaddyServer/">https://www.yuyanlab.com/post/CaddyServer/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/blog/post/Hello-hbut/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">你好 大学</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/blog/post/Gogs/">
+        <span class="next-text nav-default">Gogs:一个不错的GitWeb服务器</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">使用评论请正确连接互联网，自主开发评论很快上线
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/YuYan_zh" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/YuYanDev" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/blog/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">毓彦</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://www.yuyanlab.com/post/CaddyServer/';
+        this.page.identifier = 'post/CaddyServer/';
+        this.page.title = 'Caddy Server简易使用手册';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//alleysakura.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/blog/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/blog/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="欢迎来访毓彦的小站！这里会记录毓彦在学习中遇到的困难和总结的经验，也会记录一些碎碎念。如果你喜欢我的网站，欢迎使用订阅网站。网站会不定期的加装一些实验性功能。关于隐私方面，此网站只有Google和Disqus会记录Cookie，服务器不记录任何数据。"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="毓彦">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://www.yuyanlab.com/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-110530597-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 毓彦 - 欢迎来访毓彦的小站！这里会记录毓彦在学习中遇到的困难和总结的经验，也会记录一些碎碎念。如果你喜欢我的网站，欢迎使用订阅网站。网站会不定期的加装一些实验性功能。关于隐私方面，此网站只有Google和Disqus会记录Cookie，服务器不记录任何数据。 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/." class="logo">毓彦</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/blog/./">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./Link/">
+        <li class="mobile-menu-item">
+          
+          
+            Link
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./about/">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+      <a href=".https://github.com/YuYanDev">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/blog/." class="logo">毓彦</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./Link/">
+            
+            
+              Link
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./about/">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href=".https://github.com/YuYanDev">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/HF-Radio/">短波开台，DX之旅</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-10-09
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>经历了多天磨难后，毓彦的短波电台设立了，使用了Yaesu FT-891收发信机，然后使用了天调</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/carbillo-js/">cabrillo.js的诞生</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-08-01
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p>Cabrillo是一种运用于业余无线电竞赛的日志格式，在Github上找了一圈，发现有Ruby和python写的，想了想，不如用我比较熟悉的js弄一个cabrillo的解析库。</p>
+<p>目前发布的是0.1.0版本，准备在重构后推出0.2.0版本。同样会在集成node-adif两个库后推出cli工具。<br>但是意外的是，我在国内外的ham论坛里推广了下发现没有这类的需求，所以在第一条issue出来前是不会开工的，相反大家对c++的解析更感兴趣？？？用electron封装不是更好？？？</p>
+<p>实现的是cabrillo和json的互相转换，目前是兼容了CQWW，CQWPX，和ARRL标准模板的cabrillo和json互相转换。同时兼容浏览器和node环境</p>
+<p>Github: <a href="https://github.com/YuYanDev/cabrillo.js" target="_blank" rel="noopener">https://github.com/YuYanDev/cabrillo.js</a></p>
+<p>这是第一个写的有点像样子的js库，全部使用ES5标准写的，标准英文驼峰命名。</p>
+<p>整个库编写难点就是在于Cabrillo缩进问题，呼号不足要用占位符补全。<br>但是js对空格的补全处理非常鸡肋，在html环境下得用<code>&amp;nbsp;</code>，所以我单独封装了函数<code>creatVariableQsoField</code>来专门处理这个问题，这个函数将原始字符串，长度，对其方式传入，当字符串大于长度时抛出错误，不足时按长度补全空格后返回处理好的字符串。</p>
+<p>关于json的处理的理解和能力提升了很多</p>
+<p>在库的开发方面还是需要提高姿势水平啊</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/Digital-communication-test/">数字模式初体验FT8</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>数字通信一直是业余无线电发展的方向。今天说的不是DMR之类的数字信号，而是诸如FT8/JT65之类的数字模式。</p>
+<p>传统上大家都是用SSB或者CW模式进行通联，或者有些时候也会用RTTY传统数传的方式通联。这些模式在目前日益糟糕的电磁环境下，已经很难dx或者有较好的通联效果了。而FT8/JT65这类新出现的数字模式，则具有更好的效果。</p>
+<p>更具ham们的经验，借晨昏线40-60W即可无压力通欧洲，更多情况下，大家还是更热衷于FT8的QRP通联，具体的实际效果呢，hellocq等很多地方有很多记录啦，看着非常羡慕。</p>
+          <div class="read-more">
+            <a href="/blog/post/Digital-communication-test/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/dbstudy/">js玩家的数据库初体验</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-05-02
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>这学期的专业课有一门就是数据库。课也快上完了，但是我个人认为这是一门没有什么卵用的课程，忽略了实际运用，只讲理论，这也是我非常不爽的原因。</p>
+<p>都8102年了，还TM在用SQL Server 2008。这和我个人风格是非常不符合的，在之前，高中时学习了Access数据库，而大学我一直在使用了MongoDB这类缓存型数据库，体验还是不错。这次我使用的是MySQL数据库，这是我比较喜欢的关系型数据库。</p>
+<p>让我们定个小目标，写个电台日志！这可是非常简单了，一张表就能搞定。成品在: <a href="https://bg6tti.intl.moe/" target="_blank" rel="noopener">https://bg6tti.intl.moe/</a>（懒癌的我没有更新）<br>
+          <div class="read-more">
+            <a href="/blog/post/dbstudy/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/startingHamRadio/">业余无线电的初入门及常用网站</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-04-30
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>我这根香肠烤成火腿，大概经历了五个来月吧，现在准备FCC的Tech和General级别的考试，然后年底准备考B上短波</p>
+<h3 id="首先，什么是业余无线电"><a href="#首先，什么是业余无线电" class="headerlink" title="首先，什么是业余无线电"></a>首先，什么是业余无线电</h3><blockquote>
+<p>业余无线电（英语：Amateur Radio），也被称作火腿电台（英语：ham radio）是一种供业余无线电爱好者进行非盈利信息交换、无线通讯技术实验、自我训练、个人娱乐、无线电运动、竞赛以及应急通信的一项使用无线电频率频谱的无线电业务。其中“业余无线电爱好者”指“经过正式批准的、对无线电技术有兴趣的人，其兴趣系个人爱好而不涉及牟取利润（直接的利润或是间接的奖赏）”。业余无线电与商业广播、公共安全无线电（例如警用与消防用无线电）或者其他专业双向无线电业务（例如船用、航空和公众对讲机无线电）存在区别，业余无线电并非这些专业无线电业务的业余形式，也不是有关这些业务的业余爱好，而是一项独立的无线电业务。（Wikipedia）</p>
+</blockquote>
+<p>自己可以设立一个自己的个人业余电台，是不是想想就兴奋呢？</p>
+<p>不过业余电台和商业电台不同，业余电台不得广播，也就是只能和其他业余电台通讯，而且不得传播商业内容，这是非盈利的。<br>
+          <div class="read-more">
+            <a href="/blog/post/startingHamRadio/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/create-hash-router/">关于前端路由系统的简单分析与实践</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-02-27
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>你也许会在很多网站上看到他们的链接都是<code>http://example.com/#/xxx</code>的形式，而且加载速度非常快。如果你是React/vue/ng的开发者，那你应该也对这个东西非常熟悉。今天就分析一下hash路由的原理。<br>
+          <div class="read-more">
+            <a href="/blog/post/create-hash-router/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/2018/">回顾2017展望2018</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-31
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>恩，这好像是博客的第二次发布年终总结，明天角标就变成2015-2018啦<br>
+          <div class="read-more">
+            <a href="/blog/post/2018/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/try-to-using-webassembly/">初次尝试WebAssembly</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-12-23
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <h3 id="首先，什么是WebAssembly？"><a href="#首先，什么是WebAssembly？" class="headerlink" title="首先，什么是WebAssembly？"></a>首先，什么是WebAssembly？</h3><p>根据维基百科上面的解释：WebAssembly或称wasm是一个实验性的低级编程语言，应用于浏览器内的客户端。WebAssembly是便携式的抽象语法树，被设计来提供比JavaScript更快速的编译及运行。WebAssembly将让开发者能运用自己熟悉的编程语言（目前主要是C/C++）编译，再藉JavaScript引擎在浏览器内运行。</p>
+<p><a href="http://webassembly.org/" target="_blank" rel="noopener">http://webassembly.org/</a></p>
+<p>按照博主的理解，WebAssembly应该是种可以被浏览器运行的二进制程序。嗯<br>
+          <div class="read-more">
+            <a href="/blog/post/try-to-using-webassembly/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/react-hexo-blog/">使用React，GithubAPI，Hexo，Travis-CI构建一个属于自己的博客</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-11-08
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>的确现在的博客就是基于这个思路打造的。纯粹的restful+单页应用的风格。</p>
+<p>首先的Hexo部分，hexo本来是通过生成一个个目录的然后加入index.html实现的文章路径，得益于“hexo-generator-json-content”这个插件，它可以把所有文章信息，构造为一个json。这个json后面上传到github上便成为了最主要的api。</p>
+<p>至于原来的目录，出于seo优化的需要，我们在<code>page.ejs</code>等模板上做一个重定向<code>/post/postname</code> -&gt;<code>/#!/post/postname</code></p>
+<p>Travis-CI方面，主要是根据GihubAPI的特点，满足我们懒人的需要，只需要朝gitpage的一个分支上上传markdown，Travis-CI就会给我们自动部署发布到主分支上。我们hexo生成上传的东西也需要做些优化，毕竟，我们要的只是那个<code>content.json</code>和其他一些东西。</p>
+<p>Github方面，不说了，就提供文件储存还有API。</p>
+<p>关于React，接下来继续说</p>
+          <div class="read-more">
+            <a href="/blog/post/react-hexo-blog/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/newblog/">好久没有写博客了，来叙叙最近吧</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-11-08
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>最近踩了很多坑，然后用React 15，通过travis-ci来hexo生成一些json，结合github的api一起造了这个博客。<br>踩了很多的坑。以后慢慢在博客中叙述叙述记叙出来吧。</p>
+<p>大学生活也是一言难尽，总之，我回来了<br>
+          <div class="read-more">
+            <a href="/blog/post/newblog/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    
+    
+      <a class="next" href="/blog/page/2/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/YuYan_zh" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/YuYanDev" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/blog/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">毓彦</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/blog/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/blog/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="关于前端路由系统的简单分析与实践"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="毓彦">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://www.yuyanlab.com/post/create-hash-router/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-110530597-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 关于前端路由系统的简单分析与实践 - 毓彦 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/." class="logo">毓彦</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/blog/./">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./Link/">
+        <li class="mobile-menu-item">
+          
+          
+            Link
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./about/">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+      <a href=".https://github.com/YuYanDev">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/blog/." class="logo">毓彦</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./Link/">
+            
+            
+              Link
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./about/">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href=".https://github.com/YuYanDev">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          关于前端路由系统的简单分析与实践
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2018-02-27
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+  <div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">文章目录</h2>
+    <div class="post-toc-content">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本原理"><span class="toc-text">基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码实现"><span class="toc-text">代码实现</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#为什么使用hash路由"><span class="toc-text">为什么使用hash路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#history路由与hash路由"><span class="toc-text">history路由与hash路由</span></a></li></ol>
+    </div>
+  </div>
+
+
+    <div class="post-content">
+      
+        <p>你也许会在很多网站上看到他们的链接都是<code>http://example.com/#/xxx</code>的形式，而且加载速度非常快。如果你是React/vue/ng的开发者，那你应该也对这个东西非常熟悉。今天就分析一下hash路由的原理。<br><a id="more"></a></p>
+<h2 id="基本原理"><a href="#基本原理" class="headerlink" title="基本原理"></a>基本原理</h2><p>hash路由是一个hashtag升级实现形式，以前通常使用hashbang实现也就是<code>#!</code>这个标志，为的是不与jquery冲突，而现在随着MVVM框架的普及，越来越多的hash路由系统选择了<code>#</code>。而在url中<code>#</code>像分隔符一样，<code>#</code>及它以后的东西并不会改变请求url。所以这就给我们留下了动手空间。</p>
+<p>好了，一个最简单的hash系统需要有些东西呢？</p>
+<ol>
+<li>路由表</li>
+<li>一个刷新器</li>
+<li>回调机制</li>
+</ol>
+<p>让我们回到万恶之源<code>location.hash</code>,这是获取与改变location.hash的最基本的方式,当然你还可以通过改变url的方式改变hash，诸如<code>location.href</code> ,<code>&lt;a href=&quot;#/xx&quot;&gt;xx&lt;/a&gt;</code>等方式。</p>
+<p>在<code>location.hash</code>中还有一个重要的东西叫做<code>window.onhashchange</code>，这个东西可以在hash值改变时触发相关函数。</p>
+<h2 id="代码实现"><a href="#代码实现" class="headerlink" title="代码实现"></a>代码实现</h2><p>好了，接下来可以开始实现了，这里使用ES6的class类来实现，当然 使用ES5的proptype也是可以的，<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Router</span> </span>&#123;</span><br><span class="line">  <span class="comment">//建立路由表</span></span><br><span class="line">  <span class="keyword">constructor</span>() &#123;</span><br><span class="line">    <span class="keyword">this</span>.routes = &#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.hashUrl = <span class="string">''</span>;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 调用路由下回调函数</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  route(path, callback) &#123;</span><br><span class="line">    <span class="keyword">this</span>.routes[path] = callback || <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 状态刷新机制</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  updateView() &#123;</span><br><span class="line">    <span class="keyword">this</span>.hashUrl = location.hash.slice(<span class="number">1</span>) || <span class="string">'/'</span>;</span><br><span class="line">    <span class="keyword">this</span>.routes[<span class="keyword">this</span>.hashUrl] &amp;&amp; <span class="keyword">this</span>.routes[<span class="keyword">this</span>.hashUrl]();</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 初始化路由，在路由改变时启动状态刷新机制</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  init() &#123;</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="keyword">this</span>.updateView.bind(<span class="keyword">this</span>), <span class="literal">false</span>);</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">'hashchange'</span>, <span class="keyword">this</span>.updateView.bind(<span class="keyword">this</span>), <span class="literal">false</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当然，根据自身需求可以丰富这个最基本的路由，比如博主会在hash路由里新建search query。<br>所以在hashUrl里对<code>location.hash</code>中<code>?</code>及其后面的字符进行了截取。而获取search query是写在了外部函数中，未来也要弄进class里来。</p>
+<p>路由的功能有多大，完全取决于你的想象力，<br>你甚至可以根据页面文字的hash值（注意不是url的hash值）实现一个类似React-Router 2中<code>?_k=xxxxxx</code>的历史标签</p>
+<p>之前说过，用ES5的prototype也是可以的<br>（PS: 当然博主选择了比较粗暴的方式=&gt; babel，根据大家自己的喜好选择顺手的方式就好啦）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Router</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.routes = &#123;&#125;;</span><br><span class="line">    <span class="keyword">this</span>.hashUrl = <span class="string">''</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Router.prototype = &#123;</span><br><span class="line"></span><br><span class="line">    route: <span class="function"><span class="keyword">function</span> (<span class="params">path, callback</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.routes[path] = callback || <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;&#125;;</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    updateView: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.hashUrl = location.hash.slice(<span class="number">1</span>) || <span class="string">'/'</span>;</span><br><span class="line">        <span class="keyword">this</span>.routes[<span class="keyword">this</span>.hashUrl] &amp;&amp; <span class="keyword">this</span>.routes[<span class="keyword">this</span>.hashUrl]();</span><br><span class="line">    &#125;,</span><br><span class="line"></span><br><span class="line">    init: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'load'</span>, <span class="keyword">this</span>.updateView.bind(<span class="keyword">this</span>), <span class="literal">false</span>);</span><br><span class="line">        <span class="built_in">window</span>.addEventListener(<span class="string">'hashchange'</span>, <span class="keyword">this</span>.updateView.bind(<span class="keyword">this</span>), <span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>好了，基本原理弄清楚后，就可以开始编写路由了<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> router = <span class="keyword">new</span> Router();</span><br><span class="line">router.init();</span><br><span class="line"></span><br><span class="line">router.route(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (location.hash.length == <span class="number">0</span>) &#123;</span><br><span class="line">        location.hash = <span class="string">"/"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>).innerHTML = <span class="string">'Home'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.route(<span class="string">'/about'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>).innerHTML = <span class="string">'About'</span>;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.route(<span class="string">'/links'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">document</span>.getElementById(<span class="string">'content'</span>).innerHTML = <span class="string">'Links'</span>;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
+<h2 id="为什么使用hash路由"><a href="#为什么使用hash路由" class="headerlink" title="为什么使用hash路由"></a>为什么使用hash路由</h2><p>hash路由有很多优点</p>
+<ol>
+<li>快，代码是在网页载入时就已经下载，只有切换时才调用，如果你每个router都要发起大量的ajax或者fetch请求的话，让你的服务器运维把http2的connect时间开大点，用户体验极好</li>
+<li>兼容性很好</li>
+</ol>
+<p>当然缺点也有</p>
+<ol>
+<li>爬虫体验极差，不是说不能爬，你的爬虫得学会理解并执行js。谷歌bot在爬取hash路由的网页效果也很差，这也是博主为何没有启用自己编写的博客的原因</li>
+<li>与jq混用需谨慎，坑非常多，你可能需要重构大量代码，最好还是与Vanilla.js搭配食用（笑）</li>
+<li>过渡动画不是很好写，感觉有些生硬</li>
+</ol>
+<h2 id="history路由与hash路由"><a href="#history路由与hash路由" class="headerlink" title="history路由与hash路由"></a>history路由与hash路由</h2><p>history路由是根据h5的新api弄出来的东西，使用的是<code>history.pushState</code> 和 <code>history.replaceState</code>来改变状态的，同样history可以用来操纵hash路由，但是通常没人这么做。一般情况下，它直接改变的是pathname，通过对后端的设置来进行rewrite防止404错误，而前端对history及pathname的读取来刷新状态，这样做虽然使url整洁爬虫友好，但是rewrite设置非常麻烦，你的api以及static静态文件要单独设置，很麻烦，这也是我讨厌history路由的原因</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://www.yuyanlab.com">毓彦</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://www.yuyanlab.com/post/create-hash-router/">https://www.yuyanlab.com/post/create-hash-router/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/blog/post/startingHamRadio/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">业余无线电的初入门及常用网站</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/blog/post/2018/">
+        <span class="next-text nav-default">回顾2017展望2018</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">使用评论请正确连接互联网，自主开发评论很快上线
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/YuYan_zh" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/YuYanDev" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/blog/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">毓彦</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://www.yuyanlab.com/post/create-hash-router/';
+        this.page.identifier = 'post/create-hash-router/';
+        this.page.title = '关于前端路由系统的简单分析与实践';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//alleysakura.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/blog/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/blog/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

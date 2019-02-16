@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="Kali在树莓派上的调教笔记"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="毓彦">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://www.yuyanlab.com/post/Kali-raspberry/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-110530597-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> Kali在树莓派上的调教笔记 - 毓彦 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/." class="logo">毓彦</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/blog/./">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./Link/">
+        <li class="mobile-menu-item">
+          
+          
+            Link
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./about/">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+      <a href=".https://github.com/YuYanDev">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/blog/." class="logo">毓彦</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./Link/">
+            
+            
+              Link
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./about/">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href=".https://github.com/YuYanDev">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          Kali在树莓派上的调教笔记
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2017-06-25
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>一个偶然的时刻，我发现某个地方的IP是开放80和443端口的，那如果不好好利用一下简直太可惜了。当然，人家可是良民，当然会遵守国家的法律法规啦，那废话就不多说了。</p>
+<p>小插曲：好久不用raspbian了，刷好镜像通电后才知道raspbian已经在一年前就已经默认关闭了ssh，没ssh那玩个鬼。</p>
+<p>索性放弃raspbian，那么目前有Ubuntu Mate，Kali OS，Arch Linux三个系统供我选择，Ubuntu Mate也是需要通过显示器设定，故放弃；Arch Linux arm安装需要用到linux的机子；所以选择了Kali OS。<br><a id="more"></a><br>这是Kali的安装指导页面<a href="https://docs.kali.org/introduction/download-official-kali-linux-images" target="_blank" rel="noopener">https://docs.kali.org/introduction/download-official-kali-linux-images</a>里面包括了自定义构建镜像的方法和已构建好的镜像的下载链接。<br>也可以直接从这个页面寻获下载链接<a href="https://www.offensive-security.com/kali-linux-arm-images/" target="_blank" rel="noopener">https://www.offensive-security.com/kali-linux-arm-images/</a></p>
+<p>接下啦是刻录的方式，我的本子是OS X的系统，所以我写的是该系统的烧录方式</p>
+<ol>
+<li><p>下载</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://images.offensive-security.com/arm-images/kali-2017.01-rpi2.img.xz</span><br><span class="line">unxz kali-2017.01-rpi2.img.xz</span><br><span class="line">mv kali-2017.01-rpi2.img ~/</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>打开OS X的自带的磁盘工具，将tf卡格式化成MS-DOS(FAT)格式的。</p>
+</li>
+<li>用<code>df -h</code>命令找到你的tf卡的挂在地址.</li>
+<li>假设我的是<code>/dev/disk2s1</code>，就执行<code>diskutil unmount /dev/disk2s1</code>，以此类推。</li>
+<li>执行<code>diskutil list</code>来找到tf卡，假设我返回来的是<code>/dev/disk2</code></li>
+<li>使用dd命令来刻录<code>sudo dd bs=4m if=kali-2017.01-rpi2.img of=/dev/rdisk2</code>，注意of后指向的disk要加上r。刻录时间稍长，多等等。最后会打印record和transferred信息的。</li>
+<li>最后<code>diskutil unmountDisk /dev/disk2</code>来推出设备，就可以插上树莓派了。</li>
+</ol>
+<p>这时，把树莓派接上网线。登入你的路由器控制面板。有以下几件事需要做</p>
+<ol>
+<li>打开客户端列表，查看主机名为kali设备的内网IP地址和MAC地址</li>
+<li>打开保留列表，将记录下来的内网IP和MAC地址绑定</li>
+<li>打开端口转发列表，将80和443或者其他端口转发至内网IP，协议默认即可，也可指定。</li>
+<li>如果路由器自带ddns服务的话，也可以设定。</li>
+</ol>
+<p>好了，这个时候，我们可以登入Kali了，官方打包的系统，默认使用root用户。密码toor。登入后修改密码。</p>
+<p>第一步先换源，树莓派版本的Kali是基于kali-rolling构建的，所以我们在修改软件源时要务必注意和检查<br>比如清华tuna源，在<code>https://mirrors.tuna.tsinghua.edu.cn/kali/dists/</code>里有<code>kali-rolling</code>所以理论上是可以用这个源的（当然的确是可以用的）<br>编辑镜像源列表<code>nano /etc/apt/sources.list</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">deb http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://mirrors.tuna.tsinghua.edu.cn/kali kali-rolling main non-free contrib</span><br><span class="line"></span><br><span class="line">deb http://http.kali.org/kali kali-rolling main non-free contrib</span><br><span class="line">deb-src http://http.kali.org/kali kali-rolling main non-free contrib</span><br></pre></td></tr></table></figure></p>
+<p>刷新一下<code>apt-get update</code></p>
+<p>接下来是安装nginx的部分，由于对树莓派操纵数据库的阴影，(可以查看本博客最早的那些文章)所以不打算安装数据库，我不会写php，所以也没必要安装php。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">apt-get install -y unzip curl build-essential make gcc libpcre3 libpcre3-dev libpcre++-dev zlib1g-dev libbz2-dev libxslt1-dev libxml2-dev libgd2-xpm-dev libgeoip-dev libgoogle-perftools-dev libperl-dev libssl-dev</span><br><span class="line">wget https://www.openssl.org/<span class="built_in">source</span>/openssl-1.0.2l.tar.gz</span><br><span class="line">wget http://nginx.org/download/nginx-1.12.0.tar.gz</span><br><span class="line">tar -zxvf openssl-1.0.2l.tar.gz</span><br><span class="line">tar -zxvf nginx-1.12.0.tar.gz</span><br><span class="line"><span class="built_in">cd</span> nginx-1.12.0</span><br><span class="line"></span><br><span class="line">./configure \</span><br><span class="line">--prefix=/etc/nginx                                                \</span><br><span class="line">--sbin-path=/usr/sbin/nginx                                        \</span><br><span class="line">--conf-path=/etc/nginx/nginx.conf                                  \</span><br><span class="line">--error-log-path=/var/<span class="built_in">log</span>/nginx/error.log                          \</span><br><span class="line">--http-log-path=/var/<span class="built_in">log</span>/nginx/access.log                          \</span><br><span class="line">--pid-path=/var/run/nginx.pid                                      \</span><br><span class="line">--lock-path=/var/run/nginx.lock                                    \</span><br><span class="line">--http-client-body-temp-path=/var/cache/nginx/client_temp          \</span><br><span class="line">--http-proxy-temp-path=/var/cache/nginx/proxy_temp                 \</span><br><span class="line">--http-fastcgi-temp-path=/var/cache/nginx/fastcgi_temp             \</span><br><span class="line">--http-uwsgi-temp-path=/var/cache/nginx/uwsgi_temp                 \</span><br><span class="line">--http-scgi-temp-path=/var/cache/nginx/scgi_temp                   \</span><br><span class="line">--user=nginx                                                       \</span><br><span class="line">--group=nginx                                                      \</span><br><span class="line">--with-openssl=../openssl-1.0.2l                                   \</span><br><span class="line">--with-http_ssl_module                                             \</span><br><span class="line">--with-http_realip_module                                          \</span><br><span class="line">--with-http_addition_module                                        \</span><br><span class="line">--with-http_sub_module                                             \</span><br><span class="line">--with-http_dav_module                                             \</span><br><span class="line">--with-http_flv_module                                             \</span><br><span class="line">--with-http_mp4_module                                             \</span><br><span class="line">--with-http_gunzip_module                                          \</span><br><span class="line">--with-http_gzip_static_module                                     \</span><br><span class="line">--with-http_random_index_module                                    \</span><br><span class="line">--with-http_secure_link_module                                     \</span><br><span class="line">--with-http_stub_status_module                                     \</span><br><span class="line">--with-http_auth_request_module                                    \</span><br><span class="line">--with-file-aio                                                    \</span><br><span class="line">--with-http_v2_module                                              \</span><br><span class="line">--with-threads                                                     \</span><br><span class="line">--with-stream                                                      \</span><br><span class="line">--with-stream_ssl_module                                           \</span><br><span class="line">--with-http_slice_module</span><br><span class="line"></span><br><span class="line">make &amp;&amp; make install</span><br><span class="line">useradd -r nginx</span><br><span class="line">mkdir /var/cache/nginx</span><br><span class="line">touch /var/cache/nginx/client_temp</span><br></pre></td></tr></table></figure>
+<p>这时我们再创建一个systemctl启动脚本<code>nano /lib/systemd/system/nginx.service</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=The NGINX HTTP and reverse proxy server</span><br><span class="line">After=syslog.target network.target remote-fs.target nss-lookup.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=forking</span><br><span class="line">PIDFile=/var/run/nginx.pid</span><br><span class="line">ExecStartPre=/usr/sbin/nginx -t</span><br><span class="line">ExecStart=/usr/sbin/nginx</span><br><span class="line">ExecReload=/bin/<span class="built_in">kill</span> -s HUP <span class="variable">$MAINPID</span></span><br><span class="line">ExecStop=/bin/<span class="built_in">kill</span> -s QUIT <span class="variable">$MAINPID</span></span><br><span class="line">PrivateTmp=<span class="literal">true</span></span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></p>
+<p>就可以启动<code>systemctl start nginx</code></p>
+<p>接下来，我们去/etc/nginx里编辑脚本就可以啦,博客之前的文章也有。node还没有装，不过后续可能会更新吧。<br><img src="/img/kalirasp.png" alt=""></p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://www.yuyanlab.com">毓彦</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://www.yuyanlab.com/post/Kali-raspberry/">https://www.yuyanlab.com/post/Kali-raspberry/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/blog/post/fcgi/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">Nginx+FCGI编译安装+TCL/C++/shell的学习/安装调教</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/blog/post/HBUT-2ACM/">
+        <span class="next-text nav-default">HBUT 2nd ACM Contest</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">使用评论请正确连接互联网，自主开发评论很快上线
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/YuYan_zh" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/YuYanDev" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/blog/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">毓彦</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://www.yuyanlab.com/post/Kali-raspberry/';
+        this.page.identifier = 'post/Kali-raspberry/';
+        this.page.title = 'Kali在树莓派上的调教笔记';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//alleysakura.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/blog/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/blog/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

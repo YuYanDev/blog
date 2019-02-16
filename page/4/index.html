@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="欢迎来访毓彦的小站！这里会记录毓彦在学习中遇到的困难和总结的经验，也会记录一些碎碎念。如果你喜欢我的网站，欢迎使用订阅网站。网站会不定期的加装一些实验性功能。关于隐私方面，此网站只有Google和Disqus会记录Cookie，服务器不记录任何数据。"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="毓彦">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://www.yuyanlab.com/page/4/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-110530597-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 毓彦 - 欢迎来访毓彦的小站！这里会记录毓彦在学习中遇到的困难和总结的经验，也会记录一些碎碎念。如果你喜欢我的网站，欢迎使用订阅网站。网站会不定期的加装一些实验性功能。关于隐私方面，此网站只有Google和Disqus会记录Cookie，服务器不记录任何数据。 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/." class="logo">毓彦</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/blog/./">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./Link/">
+        <li class="mobile-menu-item">
+          
+          
+            Link
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./about/">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+      <a href=".https://github.com/YuYanDev">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/blog/." class="logo">毓彦</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./Link/">
+            
+            
+              Link
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./about/">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href=".https://github.com/YuYanDev">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/NewStart/">我又回来啦!</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-06-08
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>原地满血复活2333333</p>
+<p>这个假期,我将完整自己的linux知识体系,准备ccna考试,同时开始学习javascript.<br>对博客将会有一个全新的优化和界面的更改,请期待~</p>
+<p>三个月内,发生了很多,我依然没有停止做死,而是尝试了一些新的机器prpr,也收获了一些经验.相关内容陆续会写的qaq</p>
+<p>恩就这样吧~<br>
+          <div class="read-more">
+            <a href="/blog/post/NewStart/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/something-about-ssl-handshake/">针对HTTP/2的一些优化</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-02-20
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>HTTP/2现在来说已经不新鲜了,很多博客第一时间都用上了HTTP/2.但是里面有很多小细节值得推敲!</p>
+<p>很多人打开chrome的控制台一看,WoW~ h2启用成功了.实际上并不然,这只代表了服务器给你发出了HTTP/2的CipherSuite,不一定真的启用了HTTP/2.但是我们可以用抓包工具来check.这个就不详细说明了.看使用文档去23333333<br>但我们可以用更简单的方法来检验-&gt;SSLLABS<a href="https://ssllabs.com" target="_blank" rel="noopener">https://www.ssllabs.com</a>这是一款在线的ssl检测的网站,权威且专业.<br>检测完毕后,我们可以查看Handshake Simulation,从IE6到最新的Edge都有<br>如果没有使用HTTP/2,则显示<br><code>TLS 1.2 &gt; http/1.1</code><br>如果HTTP/2启用成功,则显示<br><code>TLS 1.2 &gt; h2</code></p>
+<p>如果算法调不好,甚至还会出现Chrome和ff无法访问的情况<br>如何正确的使用HTTP/2.关于握手算法我推荐<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl_ciphers  ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384;</span><br></pre></td></tr></table></figure></p>
+<p>如果你使用了BoringSSL 我推荐<a href="https://www.imququ.com" target="_blank" rel="noopener">JerryQu</a>提供的算法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssl_ciphers [ECDHE-ECDSA-AES128-GCM-SHA256|ECDHE-ECDSA-CHACHA20-POLY1305]:[ECDHE-RSA-AES128-GCM-SHA256|ECDHE-RSA-CHACHA20-POLY1305]:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:DES-CBC3-SHA;</span><br></pre></td></tr></table></figure></p>
+<p>另外,博主发现了几个BoringSSL的bug,希望大家注意!<br>1:BoringSSL下,nginx-ct模块目前处于失效状态,无法启用<br>2:安装好后编译nginx时会报错<br><code>|| n == SSL_R_NO_CIPHERS_SPECIFIED              /*183*/</code><br>解决方案 <code>nano ./src/event/ngx_event_openssl.c</code> ,然后删除这一行<br>另外,关于食用BoringSSL的方法,以及另外的一个BUG.可以查看JerryQu的文章<a href="https://imququ.com/post/optimize-ssl-ciphers-with-boringssl.html" target="_blank" rel="noopener">https://imququ.com/post/optimize-ssl-ciphers-with-boringssl.html</a><br>
+          <div class="read-more">
+            <a href="/blog/post/something-about-ssl-handshake/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/A-Shadowsock-Bug/">一个Shadowsock Bug</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-02-12
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>这个bug发现于安装shadowsock-qt5客户端时</p>
+<p>由于debian没有ppa源的支持，我们只能用dpkg手动构建shadowsock-qt5，那么问题来了…..<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install qt5-qmake qtbase5-dev libqrencode-dev libqtshadowsocks-dev libappindicator-dev libzbar-dev libbotan1.10-dev</span><br></pre></td></tr></table></figure></p>
+<p>debian源里木有这个<code>libqtshadowsocks-dev</code> QAQ</p>
+<p>好在Github有libqtshadowsocks <a href="https://github.com/shadowsocks/libQtShadowsocks" target="_blank" rel="noopener">https://github.com/shadowsocks/libQtShadowsocks</a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install qt5-qmake qtbase5-dev libbotan1.10-dev</span><br><span class="line">dpkg-buildpackage -uc -us -b</span><br></pre></td></tr></table></figure></p>
+<p>恩，正常，但是安装时 报错了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dpkg-split：错误：读取 libqtshadowsocks 时出错: 是一个目录 #理论上包管理器已经纠正</span><br><span class="line">dpkg:../../src/unpack.c:123:deb_reassemble: 内部错误：unexpected exit status 2 from dpkg-split</span><br></pre></td></tr></table></figure></p>
+<p>查找到两个bug反映，可以推测是ss的问题</p>
+<p>至此在debian下构建ss客户端只能通过手动编译的方式，强行PPA源的方式不推荐，也不期望…..<br>
+          <div class="read-more">
+            <a href="/blog/post/A-Shadowsock-Bug/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/2016NewYear/">谨贺新年</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-02-08
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p><img src="/2016newyear.jpg" alt=""><br>  写点什么好呢？…..</p>
+<p>  首先，祝大家新年快乐！ (〃＾∇＾)</p>
+<p>  博客差不多快一年了，跟上了全民https的潮流，服务器也从bandwagonhost迁移到conoha最终迁移到现在的Linode，从typecho转向了hexo，并组建了御坂网络，构建了具有监控能力的小型集群。<br>  其实主题已经开发完成，但由于平板兼容性和css&amp;js文件过大的原因，未能启用，故选择了当前主题，并进行了优化。感谢主题作者提供的后续支持。<br>
+          <div class="read-more">
+            <a href="/blog/post/2016NewYear/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/new-docker/">新年新气象，全新的服务器环境</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-01-01
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <!--markdown-->终于把这个坑填了，趁着元旦3天假期。<br>CentOS6.6 + Nginx-1.8.0(with spdy3.1) + MySQL5.5 + PHP7.0.1<br><br>nginx+spdy3.1的速度感觉的确是比apache快的，尤其是启用了gzip之后。<br><br>好多人吐槽窝的网站环境比较奇葩（nginx去编译，而MySQL和PHP用包管理器），但这是按窝的偏好来配置的23333333。包管理器方便省时，nginx编译又可以增加一些其他的模块。<br><br>至于为何不编译nginx1.9.9 with HTTP/2。原因很简单，ssl加密算法兼容性还不够好。<br><br>感谢epel,remi,atomic源的支持。<br>
+          <div class="read-more">
+            <a href="/blog/post/new-docker/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/win-s-2012-r2/">体验Windows service 2012 R2/ /一些其他内容更新</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-12-27
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <p><!--markdown--> 1. Nginx不在需要手动patch去启用http/2了<br> 2. IIS8.5/10安装需要2GB以上内存（被坑了…）IIS10现已支持http/2<br> 3. 各Linux发行版的pcre与zlib库安装方法不一<br>    |– For Ubuntu/Debian<br>    <pre><code class="language-shell">apt-get install zlib1g.dev<br>apt-get install libpcre3 libpcre3-dev</code></pre><br>    |– For RedHat/CentOS<br>    <pre><code class="language-shell">yum install zlib-devel<br>yum install pcre-devel</code></pre><br>    |– For Freebsd<br>    <pre><code class="language-shell">自行编译吧……天朝的网络不适合pkg…更何况10.1不自带pkg</code></pre></p>
+<p>##体验Windows service 2012 R2</p>
+<p>一直说把静态文件搬回国内，<del>阿里云流量计费100mb带宽很合算，走443无需备案</del></p>
+<p>然而IIS需要2Gb以上内存，放弃……(nginx Windows 组件太少)</p>
+<p>转向debian，除了http2问题外，其他都好，下周重新编译，改用spdy3.1</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/update-Jessie/">给树莓派滚到了Jessie</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-11-28
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <!--markdown-->难得周六不补课，折腾一下小pi，性能优化一下。<br>这次是在pi2上进行的，老的b+版编译到kernel4.3内核后，操作还好好的，然后滚Jessie的时候就滚挂了，原因不详………<br><br> 1. 移除web相关组件<br> 2. 精简系统<br> 3. 升级系统<br> 4. 再次精简优化<br> 5. 配置vim<br> 6. 无   #差点把桌面换成了gnome<br>
+          <div class="read-more">
+            <a href="/blog/post/update-Jessie/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/shell-study1/">Shell学习笔记(1)</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-11-08
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <a id="more"></a>
+<p>为何要学习Shell，不说了，懒人必备，大多数一键安装包都是用shell写的，今天开坑了。<br>简单的大家都会玩，一个简单的例子说明一切<br>For example 重启一下lamp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">service httpd restart</span><br><span class="line">service mysqld restart</span><br><span class="line">service php-fpm restart</span><br><span class="line">echo &quot;Lamp restart complete&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这样大家都会，所以我们所要学习的，就是交互式shell，比如今天学会的这个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">PIDNUM=$(pgrep httpd | wc -l) #检测apache进程</span><br><span class="line">if [[ $PIDNUM -eq 0 ]];then #检测apache的pid状态</span><br><span class="line">          echo &quot;Apache is stopped.&quot;</span><br><span class="line">          service httpd start</span><br><span class="line">else</span><br><span class="line">          echo &quot;Apache is running.&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
+<p>这样我们的脚本就聪明多了<br>这次学到的东西，就是用$去定义一个活动，（检查pid 启动apache），以及if条件句的使用。当然我们还可以输出一个apache的pid号，方便使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Proccess number is $PIDNUM.&quot;</span><br></pre></td></tr></table></figure></p>
+<p>23333333</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/ghost-play/">ghost博客新玩法&迁移,备份教程</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-10-25
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>告别反人类的forever吧</p>
+<p>前几天把千反田迁去了搬瓦工……搬迁时出了很多问题。现在总结一下如何搬迁……<br>
+          <div class="read-more">
+            <a href="/blog/post/ghost-play/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/VSC/">Visual Studio Code初体验</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-10-04
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <!--markdown-->今年早期的时候，<del>巨硬</del>发布了这款编辑器，跨平台，支持多种编程语言，据说未来还会提供插件支持（像Atom一样）无奈系统装的是32bit的，无缘Atom（<del>主要是懒得折腾</del>）<br>一开始是打算Sublime Text的，后来有个小伙伴推荐了这个编辑器，（据说更专业，看起来也是，嗯 ∑(O_O;) ）<br>
+          <div class="read-more">
+            <a href="/blog/post/VSC/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/blog/page/5/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/YuYan_zh" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/YuYanDev" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/blog/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">毓彦</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/blog/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/blog/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

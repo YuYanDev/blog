@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="欢迎来访毓彦的小站！这里会记录毓彦在学习中遇到的困难和总结的经验，也会记录一些碎碎念。如果你喜欢我的网站，欢迎使用订阅网站。网站会不定期的加装一些实验性功能。关于隐私方面，此网站只有Google和Disqus会记录Cookie，服务器不记录任何数据。"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="毓彦">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://www.yuyanlab.com/page/5/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-110530597-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> 毓彦 - 欢迎来访毓彦的小站！这里会记录毓彦在学习中遇到的困难和总结的经验，也会记录一些碎碎念。如果你喜欢我的网站，欢迎使用订阅网站。网站会不定期的加装一些实验性功能。关于隐私方面，此网站只有Google和Disqus会记录Cookie，服务器不记录任何数据。 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/." class="logo">毓彦</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/blog/./">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./Link/">
+        <li class="mobile-menu-item">
+          
+          
+            Link
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./about/">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+      <a href=".https://github.com/YuYanDev">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/blog/." class="logo">毓彦</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./Link/">
+            
+            
+              Link
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./about/">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href=".https://github.com/YuYanDev">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts">
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/Jessie/">Hi Jessie</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-10-02
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <!--markdown-->一年半前的一天，窝认识到了一个叫Raspbian的系统，基于Wheezy打造，LXDE桌面，<del>从此走向一条不归路</del>。<br>一年半后，开始折腾i386版的Debian。此时已经是Jessie了，镜像真够吓人的，3.7GB。我一直费解官方为什么预置一大堆桌面环境而不预置个Intel网卡驱动……<br>安装很简单，并且有图形安装，百度教程一大堆<br>既然镜像里有KDE干脆就装了吧(实在是不喜欢Gnome和Debian Desktop Environment风格)<br>基本没问题，Intel驱动wiki上也有解决办法：<a href="https://wiki.debian.org/iwlwifi" target="_blank" rel="noopener">https://wiki.debian.org/iwlwifi</a><br>安装一下fcitx，文泉驿，KDE中文支持<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install fcitx fcitx-googlepinyin</span><br><span class="line">sudo apt-get install kde-l10n-zh*</span><br><span class="line">sudo apt-get install ttf-wqy-zenhei</span><br></pre></td></tr></table></figure>
+<p>安装Chrome并配置Flash。<br>安装Mplayer。安装git。<br>代码编辑器选择了Visual Studio Code 和Sublime text<br>微软还是良心的,vs-code免费好用且支持Linux:<br><a href="https://www.visualstudio.com/products/code-vs" target="_blank" rel="noopener">https://www.visualstudio.com/products/code-vs</a></p>
+<p>基本上也就玩玩这些，其他也没什么用的了orz<br>购自淘宝销量最高的<del>山寨(ShineDisk 64GB)</del>的ssd还是不错的2333333<br>
+          <div class="read-more">
+            <a href="/blog/post/Jessie/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/10/">yum部署JDK+Tomcat+MySQL环境</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-09-25
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>这年头不会配置tomcat都说不过去了……于是配置了一下，计划在上面扔个JSP网站</p>
+<p>还好不是编译安装，不过在搬瓦工超售VPS上部署这个东西还是有点顾虑的23333<br>
+          <div class="read-more">
+            <a href="/blog/post/10/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/9/">关于服务器无法使用SMTP发件的常见问题和解决方法</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-09-05
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>本文部分内容是总结网友滴……先声明一下啦！<br>把博客无法回复邮件提示的问题解决了，同时总结一下</p>
+<p>另外博客换了个色系，应该叫樱粉吧(#ee6e73)……炒鸡喜欢的说(❁´◡`❁)<em>✲ﾟ</em></p>
+<p>不废话了，开始正题：<br>1 . 由于PHP禁用了<code>fsockopen</code>和<code>pfsockopen</code>函数导致的<br>解决方法: <code>nano /etc/php.ini</code><br>①搜索<code>allow_url_fopen</code>如果搜出来是<code>allow_url_fopen = off</code>需要把off换成on，注意空格！<br>②搜索<code>extension=php_openssl.dll</code>如果前面有<code>;</code>就去掉<code>;</code>。<br>③搜索<code>disable_functions</code>往后看，如果存在<code>pfsockopen</code>的话就删掉。<br>④重启server服务，<del>下次不kill进程了</del><br>2 . 来着汪汪姐的提示:部分IDC封禁25端口，还好conoha比较良心，更换为465发信即可（需要邮件服务器商支持）<br>3 . 发件程序问题，比如无名智者的云签到程序就出现了问题，信件被拒收，返回码<code>500 bad syntax</code>这是程序的邮箱兼容问题<br>4 . 邮箱提供商问题，如果是用个人邮箱，需开通smtp发信服务，默认是不开通的，如果是企业邮箱的其余问题，直接轰炸客服即可<br>5 . iptables防火墙问题，需放行OUTPUT的25或者465端口。<br>6 . 目录的可写性，cd到CommentToMail文件夹，然后<code>chmod 777 *.*</code>和<code>chmod 777 ./log/*</code></p>
+<p>感谢吟梦的提示:换套源码试试，也感谢汪汪姐的提示:试试465<br>
+          <div class="read-more">
+            <a href="/blog/post/9/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/8/">嗨起来！nginx-1.9.3 ＋ HTTP/2.0</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-08-30
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>终于弄好了<br>—-看了起司博客的这篇文章<a href="http://www.tntsec.com/487.html" target="_blank" rel="noopener">http://www.tntsec.com/487.html</a>后开始折腾</p>
+<p>在窝的vps上，起司博客的文章并不适用，执行完成后nginx还是老版本，网页访问返回信息也是老版本的nginx-1.8.0，无奈自己研究……</p>
+<p>终于在第5遍的时候，折腾成功了！<br><code>注意这是全新安装</code>使用纯净系统（当然你把nginx和openssl卸载干净也可以）。<br>另外HTTP/2需要一张SSL证书，推荐 let’s encrypt。<br>
+          <div class="read-more">
+            <a href="/blog/post/8/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/6/">使用云数据库搭建网站集群</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-08-21
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <a id="more"></a>
+<p>这两天腾讯云数据库打折，6元6月，手贱入了一个，于是乎搭建一个网站集群</p>
+<p>用的是某宝垃圾香港空间</p>
+<p>1.上传网站源码至两个空间，DNS解析到两个空间，空间绑定域名，腾讯云数据库开启外网地址。<br>2.用第一个空间商赠送的三级域名安装到第一个空间，连接云数据库，完成后进入后台改地址。<br>3.用第二个空间商赠送的三级域名在第二个空间连接数据库，自动识别完成。</p>
+<p>搭建完成，ping时会ping到不同的地址。</p>
+<p>但大家会感觉非常慢，所以，如果你的服务器在腾讯云内部，那感受会不一样，速度会非常快，而且安全。否则不建议这样玩！</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/club/">树莓派(RaspberryPi)搭建服务器集群，负载均衡</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-08-14
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>树莓派的性能实在不行，做服务器时很卡，如果是服务器集群将会如何呢？</p>
+<p>实验思路，一台2pi做负载均衡和后端，另外一台b+只做后端。<br>先更改固定IP<br>这里负载均衡使用nginx，后端采用Apache。<br>先安装后端，并更改端口，窝改为81，防止冲突，在httpd.conf的前半部分<br>把<code>Listen 80</code>改为<code>Listen 81</code>并重启机子，因为树莓派没法单独重启Apache<br>安装nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx</span><br></pre></td></tr></table></figure></p>
+<p>打开nginx配置文件nginx.conf/也有可能是default.conf。看实际情况配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">httpd &#123;</span><br><span class="line">    upstream 192.168.1.119 &#123;</span><br><span class="line">    server  192.168.1.120:80;</span><br><span class="line">    server  192.168.1.119:80;  #负载目标，按需增加</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    server&#123;</span><br><span class="line">	listen 80;</span><br><span class="line">    server_name 192.168.1.119;</span><br><span class="line">	location / &#123;</span><br><span class="line">		proxy_pass         http://127.0.0.1:81;   #反代Apache</span><br><span class="line">		proxy_set_header   Host             $host;</span><br><span class="line">		proxy_set_header   X-Forwarded-For  $proxy_add_x_forwarded_for;</span><br><span class="line">		proxy_buffering off;  #禁用缓存，否则没效果，反而更慢</span><br><span class="line">	&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
+<p>文件结束，重启机子，同时在b+上部署lamp。</p>
+<p>最终效果不明显，依然卡，但由于未进行MySQL主从同步，内容不一致，由此看出负载均衡起效果了<br>
+          <div class="read-more">
+            <a href="/blog/post/club/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/5/">Linux服务器防护加固策略(四)部署安全狗，博主初试(体验)安全狗</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-07-24
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>安全狗是一款服务器安全软件，窝也是刚刚得知，看了起司博客的文章:<a href="http://tntsec.com/index.php/archives/34.html" target="_blank" rel="noopener">tntsec.com/index.php/archives/34.html</a>后,决定试一试（因为看起来比云锁灵活，且安全性比自己配置的更高）但原理与云锁有许多不同。<br>食用方法可以看上面起司博客的文章，也可以登陆安全狗官网<a href="http://safedog.cn,详细使用说明点此查看" target="_blank" rel="noopener">http://safedog.cn,详细使用说明点此查看</a><br>其他不过多赘述，窝来讲讲窝碰到的问题<br>
+          <div class="read-more">
+            <a href="/blog/post/5/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/disqus/">Typecho部署调用Disqus评论系统</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-07-12
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/blog/categories/黑科技/">黑科技</a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <!--markdown-->在日常博客千反田建立以后，[Trii Hsia][1]吐槽道没有评论系统，日常博客没有评论系统的确不够欢乐，看小伙伴们都在用Disqus。不如就来部署一个吧。<br>①注册一个disqus账号。<br>②在sitting选项里有个Add Disqus To Site，他会提示注册一个disqus.com的二级域名，注册即可。<br>③进入二级域名站点，进入sittings，在点击install，这时我们选择Universal Code(通用代码)。将第一块代码复制，并把Typecho主题文件夹下comments.php里的内容替换掉即可(事先请备份)。查看你的站点你就会发现评论模块变了<br>④个人优化，例：调用中文，评论设置(自己看着办吧)<br>PS:由于[<a href="https://chitanda.org][2]用的主题的血统不正，page.php里的内容一头雾水，强加的评论模块放在哪个位置都无法调用，无奈放入footer.php里，导致整站都可以评论，不过也没什么不好" target="_blank" rel="noopener">https://chitanda.org][2]用的主题的血统不正，page.php里的内容一头雾水，强加的评论模块放在哪个位置都无法调用，无奈放入footer.php里，导致整站都可以评论，不过也没什么不好</a> ∑(O_O；)<br>另外用五分钟把Chitanda.org部署上了SSL。这个是必须的！<br>但Alleysakura.com并未启用，作为一个技术性站点，评论不打算使用第三方系统，数据本地储存，应该有个技术站该有的样子<br><code>目前https://chitanda.org已安装正统ghost</code><br><br>  [1]: <a href="http://hsia.in" target="_blank" rel="noopener">http://hsia.in</a><br>  [2]: <a href="https://chitanda.org" target="_blank" rel="noopener">https://chitanda.org</a><br>
+          <div class="read-more">
+            <a href="/blog/post/disqus/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/test/">树莓派(RaspberryPi)下LAMP服务器性能测试及实际生产 </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-07-07
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>这东西性能情况如何呢？<br>DDOS就不进行测试了，意义不大，天朝的网络上行质量放在那。正常打开都难更别说DDOS了…<br>①首先是在完全运行LAMP时，内存占用达到50% 而平常跑图形也就30％，开HTML5网页网站达到70％ –LAMP的内存占用还是十分可观的，利用free命令和探针说明了这点，上图<br><img src="/img/589964438.jpg" alt=""></p>
+<p>②然后是整数运算，浮点运算以及磁盘读写，探针选择与几家大型vps商的服务器进行比较，差距明显<br>2Pi的性能是四核ARM900MHz 1GbRAM,与实际数据比例差不多，io读写尽管用了高速TF卡但敌不过Raid阵列<br><img src="/img/4283589046.jpg" alt=""><br><code>Unixbench跑分测试</code><br>UnixBench是服务器常用的性能综合测试软件，在广大站长圈子里广泛流传，今天用树莓派来跑下这个试试，看看Pi2的实际性能情况<br>这个软件从浮点，整数，io，哈希等等进行了单线程，多线程测试<br>
+          <div class="read-more">
+            <a href="/blog/post/test/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          <a class="post-link" href="/blog/post/lamp/">作死向:利用树莓派(RaspberryPi)打造LAMP服务器</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-07-05
+        </span>
+        
+          <div class="post-category">
+            
+              <a href="/blog/categories/树莓派/">树莓派</a>
+            
+          </div>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <!--markdown-->目前树莓派是最火的开源平台之一，性能拓展性也是最强的，使用它来打造服务器是个很好的主意<br><br>(LAMP=Linux+Apache+MYSQL+PHP)别问我为何不用Nginx，他跟我有仇orz<br>这里用的是Pi2(因为老B+今天骄傲了，死活开不了机)<br><br>看了汪汪姐的<a href="http://tntsec.com" target="_blank" rel="noopener">起司博客</a>非编译手动安装服务器环境的原理后，决定动手一试<br><br>
+          <div class="read-more">
+            <a href="/blog/post/lamp/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    
+      <a class="prev" href="/blog/page/4/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text">上一页</span>
+      </a>
+    
+    
+      <a class="next" href="/blog/page/6/">
+        <span class="next-text">下一页</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+
+          </div>
+          
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/YuYan_zh" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/YuYanDev" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/blog/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">毓彦</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/blog/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/blog/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>

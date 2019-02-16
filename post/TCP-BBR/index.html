@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    
+<meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+
+  <meta name="description" content="TCP-BBR拥塞控制技术的简单分析及使用"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <link rel="alternate" href="/blog/atom.xml" title="毓彦">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/blog/favicon.ico?v=2.6.0" />
+
+
+
+<link rel="canonical" href="https://www.yuyanlab.com/post/TCP-BBR/"/>
+
+
+<link rel="stylesheet" type="text/css" href="/blog/css/style.css?v=2.6.0" />
+
+
+
+
+
+
+  
+
+
+  <script id="google_analytics">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-110530597-1', 'auto');
+        ga('send', 'pageview');
+  </script>
+
+
+  <script id="baidu_push">
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+
+
+
+
+
+
+
+    <title> TCP-BBR拥塞控制技术的简单分析及使用 - 毓彦 </title>
+  </head>
+
+  <body><div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/blog/." class="logo">毓彦</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    
+      <a href="/blog/./">
+        <li class="mobile-menu-item">
+          
+          
+            首页
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./archives/">
+        <li class="mobile-menu-item">
+          
+          
+            归档
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./Link/">
+        <li class="mobile-menu-item">
+          
+          
+            Link
+          
+        </li>
+      </a>
+    
+      <a href="/blog/./about/">
+        <li class="mobile-menu-item">
+          
+          
+            关于
+          
+        </li>
+      </a>
+    
+      <a href=".https://github.com/YuYanDev">
+        <li class="mobile-menu-item">
+          
+          
+            Github
+          
+        </li>
+      </a>
+    
+  </ul>
+</nav>
+
+    <div class="container" id="mobile-panel">
+      <header id="header" class="header"><div class="logo-wrapper">
+  <a href="/blog/." class="logo">毓彦</a>
+</div>
+
+<nav class="site-navbar">
+  
+    <ul id="menu" class="menu">
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./">
+            
+            
+              首页
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./archives/">
+            
+            
+              归档
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./Link/">
+            
+            
+              Link
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href="/blog/./about/">
+            
+            
+              关于
+            
+          </a>
+        </li>
+      
+        <li class="menu-item">
+          <a class="menu-item-link" href=".https://github.com/YuYanDev">
+            
+            
+              Github
+            
+          </a>
+        </li>
+      
+    </ul>
+  
+</nav>
+
+      </header>
+
+      <main id="main" class="main">
+        <div class="content-wrapper">
+          <div id="content" class="content">
+            
+  
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          TCP-BBR拥塞控制技术的简单分析及使用
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2016-12-16
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        <p>TCP-BBR技术是Google实现的一项技术，在其正式生产环境通过后在ACM queue期刊发表: <a href="http://queue.acm.org/detail.cfm?id=3022184" target="_blank" rel="noopener">http://queue.acm.org/detail.cfm?id=3022184</a> 并提交到了Linux主线中。<br>这项技术致力于实现在劣质网络下达到较高的稳定性和可用性。</p>
+<p>相信大家对CUCN 和 EAC-C2C 两条丢包率丧心病狂的海底光缆深有感触，许多好盆友都使用了例如锐速或者finalspeed等暴力发包软件来解决这个问题，这类软件虽然自己用得爽了，但是会加剧海底光缆的拥堵，以及可能导致由于你懂得的原因把IP给ban掉。</p>
+<p>在看了相关参考文章后，在这里来分析一下：<br>TCP-BBR技术呢，用了一种溢水原理的思想，来预判丢包率，调配发包速率。<br>假设你有一支较细的U形管，下面还有一堆不可溶的填塞物，你从一边开始大量灌水，如果另一边出水正常，你就可以继续加大灌水量，达到最大带宽。如果另一边发现水时断时有，就证明下面出现了随机拥堵，这时，你就要减小灌水量，等待水位落下。这时如果采用传统继续灌水时，也就会造成水溢出（丢包现象的产生）。所以这是真正的按需发包。当然，这一切是建立在系统预估的情况下。</p>
+<p>以实际情况说，也就是应用程序在创立会话时，这项技术会增加额外少量的的会话，这些会话用于检测带宽和延迟，根据网路设备返回的情况来分析网路质量（确认延迟和带宽口径，以及回避不易确认丢包类型）。另外，这项技术中，BBR接管了TCP的控制权。</p>
+<p>由于这项技术公布的时间也就一周左右，可能会出现许多不稳定和不科学的现象，期待更新以及Google更详细的doc。<br>知乎上的许多大牛也对这项内容进行了详细的分析 <a href="https://www.zhihu.com/question/53559433" target="_blank" rel="noopener">https://www.zhihu.com/question/53559433</a></p>
+<p>这里是几份权威的文章，较为详细的说明了TCP-BBR技术<br><a href="http://www.thequilt.net/wp-content/uploads/BBR-TCP-Opportunities.pdf" target="_blank" rel="noopener">http://www.thequilt.net/wp-content/uploads/BBR-TCP-Opportunities.pdf</a><br><a href="http://blog.cerowrt.org/post/bbrs_basic_beauty/" target="_blank" rel="noopener">http://blog.cerowrt.org/post/bbrs_basic_beauty/</a></p>
+<p>接下来是具体安装运用方面</p>
+<a id="more"></a>
+<p>Linux kernel 4.9已经加入了，我们只需要更新下内核并启用就行了</p>
+<p>更新内核有风险，许多vps都有镜像功能，请镜像一份disk，如果你是单点服务器，也请做好备份！！</p>
+<p>这里是公布的是基于do的Debian8适用的，其他发行版Google一下，如果arch什么的就等下次滚动更新吧233333</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">wget http://kernel.ubuntu.com/~kernel-ppa/mainline/v4.9-rc8/linux-image-4.9.0-040900rc8-generic_4.9.0-040900rc8.201612051443_amd64.deb</span><br><span class="line"></span><br><span class="line">dpkg -i linux-image-4.9.0*.deb   #安装内核</span><br><span class="line"></span><br><span class="line">dpkg -l|grep linux-image  #查看服务器上已存在的内核</span><br><span class="line"></span><br><span class="line">apt-get purge linux-image-3.16.0-4-amd64 #替换成自己的旧内核名称即可，</span><br><span class="line">（可能会有提示另外一个` linux-image-amd64 ` 内核也要删掉，那就删掉吧。</span><br><span class="line"></span><br><span class="line">关于Abort kernel removal选择 No</span><br><span class="line"></span><br><span class="line">update-grub  #更新引导</span><br><span class="line"></span><br><span class="line">reboot #重启</span><br></pre></td></tr></table></figure>
+<p>重启进入系统后，先 <code>uname -a</code> 一下看看内核是否更新成功</p>
+<p>然后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;net.core.default_qdisc=fq&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">echo &quot;net.ipv4.tcp_congestion_control=bbr&quot; &gt;&gt; /etc/sysctl.conf</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure></p>
+<p>校验一下 执行 <code>sysctl net.ipv4.tcp_available_congestion_control</code> 返回值有bbr。<br>执行 <code>lsmod | grep bbr</code> 返回值有tcp_bbr。</p>
+<p>最后再重启一下就可以啦ovo</p>
+<p>当你看到这篇文章时，你已经享受到了TCP-BBR技术所带来的速度了。以下是一些须注意的坑</p>
+<p>从kernel官网下的内核更新包仅支持老内核版本在4.3以上的机器更新，所以我们应该使用Ubuntu源的<br>不同系统的grub配置文件可能不一样，灵活处理。</p>
+
+      
+    </div>
+
+    
+      
+      
+
+  <div class="post-copyright">
+    <p class="copyright-item">
+      <span>原文作者: </span>
+      <a href="https://www.yuyanlab.com">毓彦</a>
+    </p>
+    <p class="copyright-item">
+      <span>原文链接: </span>
+      <a href="https://www.yuyanlab.com/post/TCP-BBR/">https://www.yuyanlab.com/post/TCP-BBR/</a>
+    </p>
+    <p class="copyright-item">
+      <span>许可协议: </span>
+      
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/" target="_blank">知识共享署名-非商业性使用 4.0 国际许可协议</a>
+    </p>
+  </div>
+
+
+
+      
+      
+    
+
+    
+      <footer class="post-footer">
+        
+        
+        
+  <nav class="post-nav">
+    
+      <a class="prev" href="/blog/post/Aliyun-Bad-Work-Order/">
+        <i class="iconfont icon-left"></i>
+        <span class="prev-text nav-default">关于阿里云糟糕的工单服务</span>
+        <span class="prev-text nav-mobile">上一篇</span>
+      </a>
+    
+    
+      <a class="next" href="/blog/post/mbxo/">
+        <span class="next-text nav-default">mbxo 一款专为手机而生的hexo主题</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
+    
+  </nav>
+
+      </footer>
+    
+
+  </article>
+
+
+          </div>
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">使用评论请正确连接互联网，自主开发评论很快上线
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+      </main>
+
+      <footer id="footer" class="footer">
+
+  <div class="social-links">
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://twitter.com/YuYan_zh" class="iconfont icon-twitter" title="twitter"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <a href="https://github.com/YuYanDev" class="iconfont icon-github" title="github"></a>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+    
+    
+      <a href="/blog/atom.xml" class="iconfont icon-rss" title="rss"></a>
+    
+  </div>
+
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主题 - 
+    <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
+  </span>
+
+  <span class="copyright-year">
+    
+    &copy; 
+     
+      2015 - 
+    
+    2019
+
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">毓彦</span>
+  </span>
+</div>
+
+      </footer>
+
+      <div class="back-to-top" id="back-to-top">
+        <i class="iconfont icon-up"></i>
+      </div>
+    </div>
+
+    
+  
+  <script type="text/javascript">
+    var disqus_config = function () {
+        this.page.url = 'https://www.yuyanlab.com/post/TCP-BBR/';
+        this.page.identifier = 'post/TCP-BBR/';
+        this.page.title = 'TCP-BBR拥塞控制技术的简单分析及使用';
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+
+    s.src = '//alleysakura.disqus.com/embed.js';
+
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();  
+  </script>
+
+  
+
+  
+
+
+
+    
+
+
+
+
+  
+    <script type="text/javascript" src="/blog/lib/jquery/jquery-3.1.1.min.js"></script>
+  
+
+  
+    <script type="text/javascript" src="/blog/lib/slideout/slideout.js"></script>
+  
+
+  
+
+
+    <script type="text/javascript" src="/blog/js/src/even.js?v=2.6.0"></script>
+<script type="text/javascript" src="/blog/js/src/bootstrap.js?v=2.6.0"></script>
+
+  </body>
+</html>
