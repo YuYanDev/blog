@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://www.yuyanlab.com/"/>
-  <updated>2018-10-09T08:21:51.391Z</updated>
+  <updated>2019-02-19T06:31:23.019Z</updated>
   <id>https://www.yuyanlab.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>总结2018，展望2019</title>
+    <link href="https://www.yuyanlab.com/post/2018zj/"/>
+    <id>https://www.yuyanlab.com/post/2018zj/</id>
+    <published>2019-02-18T21:57:00.000Z</published>
+    <updated>2019-02-19T06:31:23.019Z</updated>
+    
+    <content type="html"><![CDATA[<p>在大三开学之际，做一个总结，很久没有没有写博客了</p><p>2018年开始逐渐走上正路，加入了老师实验室，开始尝试接触项目和参加比赛，也多多少少取得一些成果</p><p>2018年，陪伴我最多的框架是Vue，积累了大量代码。也发现最大的短板是CSS和面向对象上。这也是来年要努力的目标</p><p>2018年，遇到了我的第一个女朋友，但是她比我大一岁，而她想去杭州，所以我也只好跟着去杭州了。</p><p>未来路都规划好了，以后想去抢WHV，移居想去的地方</p><p>2018年，玩无线电玩得非常开心，解锁了51个国家地区，非常充实的生活</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;在大三开学之际，做一个总结，很久没有没有写博客了&lt;/p&gt;
+&lt;p&gt;2018年开始逐渐走上正路，加入了老师实验室，开始尝试接触项目和参加比赛，也多多少少取得一些成果&lt;/p&gt;
+&lt;p&gt;2018年，陪伴我最多的框架是Vue，积累了大量代码。也发现最大的短板是CSS和面向对象上。这也是
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>短波开台，DX之旅</title>
@@ -414,26 +437,6 @@
 &lt;p&gt;webpack打包模式非常赞，尽管他给我打包出个32k行的js…，但webpack用得不是特别熟悉的情况下，不要乱import进css。（包括我&lt;em&gt;(:з」∠)&lt;/em&gt; ）&lt;/p&gt;
 &lt;p&gt;react目前才学习了冰山一角，开学后继续学习，该应用也很快将会上线，下一篇博文会写一下该应用的实现ovo。&lt;/p&gt;
 &lt;p&gt;PS：jsx的写法实在太赞了！另外webpack -p后不要在编辑器里乱点编译好的js（。别问我为什么Orz）&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>你好2017</title>
-    <link href="https://www.yuyanlab.com/post/WelcomeTo2017/"/>
-    <id>https://www.yuyanlab.com/post/WelcomeTo2017/</id>
-    <published>2016-12-31T16:00:00.000Z</published>
-    <updated>2017-12-02T02:45:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>欢迎2017的到来，祝大家新年快乐o(* ≧▽≦)ツ</p><p>在2016这段时间里，我没什么拿得出手的东西，博客更新慢了许多，主要还是没有多少时间来折腾。<br>花了大量时间应付高数和英语，却没取得什么成绩，险些挂科，花在计算机上的时间也不多，除了学习到了很多c语言的知识外，也学了一些nodejs，尝试使用express框架写了些东西，也学到了一些关于jQuery的知识，但离生产还差得很远很远，感觉有些迷茫。<br>当然，我也结识一些dalao朋友，通过交流讨论学到了很多。</p><p>2017，一起加油吧！<br><a id="more"></a></p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;欢迎2017的到来，祝大家新年快乐o(* ≧▽≦)ツ&lt;/p&gt;
-&lt;p&gt;在2016这段时间里，我没什么拿得出手的东西，博客更新慢了许多，主要还是没有多少时间来折腾。&lt;br&gt;花了大量时间应付高数和英语，却没取得什么成绩，险些挂科，花在计算机上的时间也不多，除了学习到了很多c语言的知识外，也学了一些nodejs，尝试使用express框架写了些东西，也学到了一些关于jQuery的知识，但离生产还差得很远很远，感觉有些迷茫。&lt;br&gt;当然，我也结识一些dalao朋友，通过交流讨论学到了很多。&lt;/p&gt;
-&lt;p&gt;2017，一起加油吧！&lt;br&gt;
     
     </summary>
     
