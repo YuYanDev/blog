@@ -223,6 +223,51 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/blog/post/ghost-play/">ghost博客新玩法&迁移,备份教程</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-10-25
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>告别反人类的forever吧</p>
+<p>前几天把千反田迁去了搬瓦工……搬迁时出了很多问题。现在总结一下如何搬迁……<br>
+          <div class="read-more">
+            <a href="/blog/post/ghost-play/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/blog/post/VSC/">Visual Studio Code初体验</a>
         
       </h1>
@@ -621,51 +666,6 @@
           <!--markdown-->在日常博客千反田建立以后，[Trii Hsia][1]吐槽道没有评论系统，日常博客没有评论系统的确不够欢乐，看小伙伴们都在用Disqus。不如就来部署一个吧。<br>①注册一个disqus账号。<br>②在sitting选项里有个Add Disqus To Site，他会提示注册一个disqus.com的二级域名，注册即可。<br>③进入二级域名站点，进入sittings，在点击install，这时我们选择Universal Code(通用代码)。将第一块代码复制，并把Typecho主题文件夹下comments.php里的内容替换掉即可(事先请备份)。查看你的站点你就会发现评论模块变了<br>④个人优化，例：调用中文，评论设置(自己看着办吧)<br>PS:由于[<a href="https://chitanda.org][2]用的主题的血统不正，page.php里的内容一头雾水，强加的评论模块放在哪个位置都无法调用，无奈放入footer.php里，导致整站都可以评论，不过也没什么不好" target="_blank" rel="noopener">https://chitanda.org][2]用的主题的血统不正，page.php里的内容一头雾水，强加的评论模块放在哪个位置都无法调用，无奈放入footer.php里，导致整站都可以评论，不过也没什么不好</a> ∑(O_O；)<br>另外用五分钟把Chitanda.org部署上了SSL。这个是必须的！<br>但Alleysakura.com并未启用，作为一个技术性站点，评论不打算使用第三方系统，数据本地储存，应该有个技术站该有的样子<br><code>目前https://chitanda.org已安装正统ghost</code><br><br>  [1]: <a href="http://hsia.in" target="_blank" rel="noopener">http://hsia.in</a><br>  [2]: <a href="https://chitanda.org" target="_blank" rel="noopener">https://chitanda.org</a><br>
           <div class="read-more">
             <a href="/blog/post/disqus/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/blog/post/test/">树莓派(RaspberryPi)下LAMP服务器性能测试及实际生产 </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-07-07
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>这东西性能情况如何呢？<br>DDOS就不进行测试了，意义不大，天朝的网络上行质量放在那。正常打开都难更别说DDOS了…<br>①首先是在完全运行LAMP时，内存占用达到50% 而平常跑图形也就30％，开HTML5网页网站达到70％ –LAMP的内存占用还是十分可观的，利用free命令和探针说明了这点，上图<br><img src="/img/589964438.jpg" alt=""></p>
-<p>②然后是整数运算，浮点运算以及磁盘读写，探针选择与几家大型vps商的服务器进行比较，差距明显<br>2Pi的性能是四核ARM900MHz 1GbRAM,与实际数据比例差不多，io读写尽管用了高速TF卡但敌不过Raid阵列<br><img src="/img/4283589046.jpg" alt=""><br><code>Unixbench跑分测试</code><br>UnixBench是服务器常用的性能综合测试软件，在广大站长圈子里广泛流传，今天用树莓派来跑下这个试试，看看Pi2的实际性能情况<br>这个软件从浮点，整数，io，哈希等等进行了单线程，多线程测试<br>
-          <div class="read-more">
-            <a href="/blog/post/test/" class="read-more-link">阅读更多</a>
           </div>
         
       

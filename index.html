@@ -268,6 +268,53 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/blog/post/gltfread/">glTF文件测试解析脚本</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2019-02-18
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>glTF是由KhronosGroup所提出的一种三维模型格式，适用与webgl等场景</p>
+<p>但是glTF是属于一种单个的模型格式，对于大型模型来说，glTF会造成内存吞吐量过大，从而遇到性能瓶颈。<br>由于博主做的研究是BIM模型的研究，对于模型单体使用glTF来说，产生了性能瓶颈，为此想从glTF迁移到3D Tiles格式<br>3D Tiles是由AnalyticalGraphicsInc提出的一种适用于存在场景调度的三维模型格式。它还是基于glTF的，但是通过一个tiles.json的索引，分成不同的范围，进行调度，从而减少内存吞吐量，减少卡顿</p>
+<p>而博主的方向，就是从glTF针对BIM模型的特点，生成适用于BIM模型的3D Tiles格式模型。<br>目前有两个思路，思路1是利用kel tree的思想，二分拆分；思路2就是直接从Revit中，利用va3c插件，导出RevitDB的数据为json文件，使用json来构建3D Tiles。</p>
+<p>要想通过kel tree的方式，首先要将glTF二进制包解析出来<br>脚本已经完成<a href="https://gist.github.com/YuYanDev/682ab06d9dd829d2f079d28c62665d1f" target="_blank" rel="noopener">https://gist.github.com/YuYanDev/682ab06d9dd829d2f079d28c62665d1f</a><br>接下来是脚本的原理<br>
+          <div class="read-more">
+            <a href="/blog/post/gltfread/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/blog/post/HF-Radio/">短波开台，DX之旅</a>
         
       </h1>
@@ -613,55 +660,6 @@
 <p>按照博主的理解，WebAssembly应该是种可以被浏览器运行的二进制程序。嗯<br>
           <div class="read-more">
             <a href="/blog/post/try-to-using-webassembly/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/blog/post/react-hexo-blog/">使用React，GithubAPI，Hexo，Travis-CI构建一个属于自己的博客</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2017-11-08
-        </span>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <p>的确现在的博客就是基于这个思路打造的。纯粹的restful+单页应用的风格。</p>
-<p>首先的Hexo部分，hexo本来是通过生成一个个目录的然后加入index.html实现的文章路径，得益于“hexo-generator-json-content”这个插件，它可以把所有文章信息，构造为一个json。这个json后面上传到github上便成为了最主要的api。</p>
-<p>至于原来的目录，出于seo优化的需要，我们在<code>page.ejs</code>等模板上做一个重定向<code>/post/postname</code> -&gt;<code>/#!/post/postname</code></p>
-<p>Travis-CI方面，主要是根据GihubAPI的特点，满足我们懒人的需要，只需要朝gitpage的一个分支上上传markdown，Travis-CI就会给我们自动部署发布到主分支上。我们hexo生成上传的东西也需要做些优化，毕竟，我们要的只是那个<code>content.json</code>和其他一些东西。</p>
-<p>Github方面，不说了，就提供文件储存还有API。</p>
-<p>关于React，接下来继续说</p>
-          <div class="read-more">
-            <a href="/blog/post/react-hexo-blog/" class="read-more-link">阅读更多</a>
           </div>
         
       

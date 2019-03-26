@@ -223,6 +223,51 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/blog/post/test/">树莓派(RaspberryPi)下LAMP服务器性能测试及实际生产 </a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-07-07
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+          
+        
+
+        
+          <p>这东西性能情况如何呢？<br>DDOS就不进行测试了，意义不大，天朝的网络上行质量放在那。正常打开都难更别说DDOS了…<br>①首先是在完全运行LAMP时，内存占用达到50% 而平常跑图形也就30％，开HTML5网页网站达到70％ –LAMP的内存占用还是十分可观的，利用free命令和探针说明了这点，上图<br><img src="/img/589964438.jpg" alt=""></p>
+<p>②然后是整数运算，浮点运算以及磁盘读写，探针选择与几家大型vps商的服务器进行比较，差距明显<br>2Pi的性能是四核ARM900MHz 1GbRAM,与实际数据比例差不多，io读写尽管用了高速TF卡但敌不过Raid阵列<br><img src="/img/4283589046.jpg" alt=""><br><code>Unixbench跑分测试</code><br>UnixBench是服务器常用的性能综合测试软件，在广大站长圈子里广泛流传，今天用树莓派来跑下这个试试，看看Pi2的实际性能情况<br>这个软件从浮点，整数，io，哈希等等进行了单线程，多线程测试<br>
+          <div class="read-more">
+            <a href="/blog/post/test/" class="read-more-link">阅读更多</a>
+          </div>
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/blog/post/lamp/">作死向:利用树莓派(RaspberryPi)打造LAMP服务器</a>
         
       </h1>
