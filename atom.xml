@@ -6,7 +6,7 @@
   <link href="/blog/atom.xml" rel="self"/>
   
   <link href="https://www.yuyanlab.com/"/>
-  <updated>2019-02-19T06:31:23.019Z</updated>
+  <updated>2019-05-10T09:58:39.808Z</updated>
   <id>https://www.yuyanlab.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>小杨同学的上岸之旅</title>
+    <link href="https://www.yuyanlab.com/post/firstjob/"/>
+    <id>https://www.yuyanlab.com/post/firstjob/</id>
+    <published>2019-05-10T09:57:00.000Z</published>
+    <updated>2019-05-10T09:58:39.808Z</updated>
+    
+    <content type="html"><![CDATA[<p> <strong> 终于在大三的末尾，拿到了第一份job offer，感谢丁香园给的这个机会。</strong></p><p>在离公司不远的杭州滨江的合租房里，写下这篇博客，回想大学混过的这几年，似乎真的像当时计划那样走过来了，虽然各项指标都有点点缩水。</p><p>记得高考前，梦想就是去一所沿海的大学。可惜高考终究是一场带有运气的考试。面对现实，不得已放弃了去沿海，选择了一所内陆一本，指望着毕业后再跳去沿海。以前计划的是打算去广东，却阴差阳错的来了杭州。</p><p>大学初，辅导员叫我们写下了大学的计划和目标。当时我已经在计划上说得非常明确了，不想浪费太多时间在基础课上，想把更多时间投入编程中去。当然事实上也是这样过来的。按部就班的按照计划来。其它方面，四级过了，绩点也达标，毕业也不用担心了。当然大学期间非常感谢万老师和雷老师的指导，在他们那里，我才能接触大项目和参加比赛，一展身手。</p><h4 id="关于前端"><a href="#关于前端" class="headerlink" title="关于前端"></a>关于前端</h4><p>进入大学时本想在网络工程上一展身手的我,却误打误撞的选择了前端，原因很简单，漂亮清新的UI谁不喜欢。<br>从网络上听来的React到Vue，总是抱着一种心态去学：人家xx公司用xx，我也要用xxx这样的想法，导致之后没有跳出野路子学编程的局限性–太依赖框架。这一点在面试时，吃了不少的亏。便开始恶补基础：“哦，JS原来还能这样写”。直到现在，依然认为自己的基础还不扎实。<br>不过我决定把JS的各项常用方法的原理搞清楚，并捡起Golang，一年前曾经用Golang构建过一个简单的restful简单后台，感觉如今前端不掌握一门后端语言的话，出局的可能性非常大。</p><h4 id="关于杭州"><a href="#关于杭州" class="headerlink" title="关于杭州"></a>关于杭州</h4><p>杭州的选择，是源于女朋友的选择，她不喜欢吃杭州菜，但是却喜欢杭州。我呢，本来就没有什么目标城市，那就杭州吧。无法忍受异地恋的我，亦然决定了。其实当时杭州投的也没几家，阿里，字节，涂鸦，依图，酷家乐，丁香园，蘑菇街。也许涂鸦是进了备胎池吧，手里只有丁香园的offer的我，决定去了。其实考虑的思想也很单纯，无非就是加班不严重，有更多的时间陪女票，对付学业，提升自己，而且丁香园的面试体验挺好的。想想也挺不错的，加之各种面试面得有点疲惫了，于是选择了上岸。</p><p><em>现在只想好好工作，争取通过实习留下来，在杭州先站稳脚跟，和女票开开心心的生活下去</em></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt; &lt;strong&gt; 终于在大三的末尾，拿到了第一份job offer，感谢丁香园给的这个机会。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;在离公司不远的杭州滨江的合租房里，写下这篇博客，回想大学混过的这几年，似乎真的像当时计划那样走过来了，虽然各项指标都有点点缩水。&lt;/p&gt;
+&lt;p&gt;记
+      
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>总结2018，展望2019</title>
@@ -411,28 +434,6 @@
 &lt;p&gt;R410集成了非常强大的BIOS和远控卡，然而正是强大，导致了使用不是很方便，个人非常不推荐使用UEFI引导，而且也非常不好用。&lt;br&gt;在不小心按了F10进入了UEFI后，你将会经历漫长的等待，看着&lt;code&gt;Initializing UEFI,Please wait...&lt;/code&gt;(&amp;gt;=1hr)，而且极有可能加载失败。所以我们要做的就是，关闭电源，再开启电源，加载完BIOS后迅速按下Ctrl 和E键，进入菜单，进入System Services选项菜单里并把它关掉。保存退出，继续加载bios的过程中再去F11里选择u盘启动。&lt;/p&gt;
 &lt;p&gt;安装完centos后有个非常恶心的阅读协议，这个只能Good luck了。在实际上架服务器中，我们不可能使用DHCP协议获取ip，只能手动配置ip，在参考另外一台服务器的配置文件后顺利完成了ip的配置，其实图形化界面下的centos配置防火墙很容易23333333&lt;/p&gt;
 &lt;p&gt;PS：机房老师中途进来看到raid的配置和机器上4个盘位只插了一块盘有点想笑，我能怎么办，我也没钱买硬盘哇(╯‵□′)╯︵┻━┻&lt;/p&gt;
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Omega2Plus上手体验</title>
-    <link href="https://www.yuyanlab.com/post/Omega2-Getstart/"/>
-    <id>https://www.yuyanlab.com/post/Omega2-Getstart/</id>
-    <published>2017-02-10T19:24:00.000Z</published>
-    <updated>2017-12-02T02:45:03.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>好吧，我相信这是国内首发上手测评 #(手动滑稽)</p><p>Omega2是onion公司搞出的一款超迷你的IOT设备，体积非常迷你，12月参与的众筹，春节后收到的东西（顺丰发货好评）。</p><p>这款东西最大的特色是小而丰富，而且价格便宜，标准版5$，Plus版是9$，我参与的呢是plus版。</p><p>先来几张低清有码</p><p><img src="/img/Omega2-1.JPG" alt=""></p><a id="more"></a><p><img src="/img/Omega2-2.JPG" alt=""><br><img src="/img/Omega2-3.JPG" alt=""><br><img src="/img/Omega2-4.jpg" alt=""></p><p>这plus拥有一颗580MHz的处理器128MB的内存，32MB的储存，但支持TF卡，自带wifi。</p><p>官方推出了类似积木的dock扩展，然而价格较贵，不推荐。<br>15个脚的GPIO接口，可以各种折腾，官方提供了接口图。<br><img src="/img/Omega2GPIO.png" alt=""></p><p>图片源自onion</p><p>我怎么可能老老实实买dock拓展呢哈哈哈）但是针脚不兼容面包板，注意不要硬怼，正确的姿势应该使用杜邦线，把供电的3.3和GND接入到供电板上（某宝很便宜），这时，可以给板子加电了。加电之后，Omega2会自己建立个wifi，然后用自己的电脑连上这个wifi就可以初始化你的onion。</p><p>支持的编程语言也非常多，C艹，ruby，nodejs，php，python（理论上c也可以）orz</p><p>至于该怎么做，官方文档写的非常清楚，非常适合小白入门，非常友好，链接-&gt; <a href="https://docs.onion.io" target="_blank" rel="noopener">https://docs.onion.io</a> (英文版)</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;好吧，我相信这是国内首发上手测评 #(手动滑稽)&lt;/p&gt;
-&lt;p&gt;Omega2是onion公司搞出的一款超迷你的IOT设备，体积非常迷你，12月参与的众筹，春节后收到的东西（顺丰发货好评）。&lt;/p&gt;
-&lt;p&gt;这款东西最大的特色是小而丰富，而且价格便宜，标准版5$，Plus版是9$，我参与的呢是plus版。&lt;/p&gt;
-&lt;p&gt;先来几张低清有码&lt;/p&gt;
-&lt;p&gt;&lt;img src=&quot;/img/Omega2-1.JPG&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
     
     </summary>
     

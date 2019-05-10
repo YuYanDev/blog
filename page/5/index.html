@@ -223,6 +223,50 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/blog/post/shell-study1/">Shell学习笔记(1)</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          2015-11-08
+        </span>
+        
+        
+      </div>
+    </header>
+
+    
+    
+
+    <div class="post-content">
+      
+        
+        
+
+        
+          <a id="more"></a>
+<p>为何要学习Shell，不说了，懒人必备，大多数一键安装包都是用shell写的，今天开坑了。<br>简单的大家都会玩，一个简单的例子说明一切<br>For example 重启一下lamp<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">service httpd restart</span><br><span class="line">service mysqld restart</span><br><span class="line">service php-fpm restart</span><br><span class="line">echo &quot;Lamp restart complete&quot;</span><br></pre></td></tr></table></figure></p>
+<p>这样大家都会，所以我们所要学习的，就是交互式shell，比如今天学会的这个：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">#!/bin/bash</span><br><span class="line">PIDNUM=$(pgrep httpd | wc -l) #检测apache进程</span><br><span class="line">if [[ $PIDNUM -eq 0 ]];then #检测apache的pid状态</span><br><span class="line">          echo &quot;Apache is stopped.&quot;</span><br><span class="line">          service httpd start</span><br><span class="line">else</span><br><span class="line">          echo &quot;Apache is running.&quot;</span><br><span class="line">fi</span><br></pre></td></tr></table></figure></p>
+<p>这样我们的脚本就聪明多了<br>这次学到的东西，就是用$去定义一个活动，（检查pid 启动apache），以及if条件句的使用。当然我们还可以输出一个apache的pid号，方便使用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Proccess number is $PIDNUM.&quot;</span><br></pre></td></tr></table></figure></p>
+<p>23333333</p>
+
+        
+      
+    </div>
+
+    
+
+    
+
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/blog/post/ghost-play/">ghost博客新玩法&迁移,备份教程</a>
         
       </h1>
@@ -616,56 +660,6 @@
           <p>安全狗是一款服务器安全软件，窝也是刚刚得知，看了起司博客的文章:<a href="http://tntsec.com/index.php/archives/34.html" target="_blank" rel="noopener">tntsec.com/index.php/archives/34.html</a>后,决定试一试（因为看起来比云锁灵活，且安全性比自己配置的更高）但原理与云锁有许多不同。<br>食用方法可以看上面起司博客的文章，也可以登陆安全狗官网<a href="http://safedog.cn,详细使用说明点此查看" target="_blank" rel="noopener">http://safedog.cn,详细使用说明点此查看</a><br>其他不过多赘述，窝来讲讲窝碰到的问题<br>
           <div class="read-more">
             <a href="/blog/post/5/" class="read-more-link">阅读更多</a>
-          </div>
-        
-      
-    </div>
-
-    
-
-    
-
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/blog/post/disqus/">Typecho部署调用Disqus评论系统</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          2015-07-12
-        </span>
-        
-          <div class="post-category">
-            
-              <a href="/blog/categories/黑科技/">黑科技</a>
-            
-          </div>
-        
-        
-      </div>
-    </header>
-
-    
-    
-
-    <div class="post-content">
-      
-        
-        
-          
-        
-
-        
-          <!--markdown-->在日常博客千反田建立以后，[Trii Hsia][1]吐槽道没有评论系统，日常博客没有评论系统的确不够欢乐，看小伙伴们都在用Disqus。不如就来部署一个吧。<br>①注册一个disqus账号。<br>②在sitting选项里有个Add Disqus To Site，他会提示注册一个disqus.com的二级域名，注册即可。<br>③进入二级域名站点，进入sittings，在点击install，这时我们选择Universal Code(通用代码)。将第一块代码复制，并把Typecho主题文件夹下comments.php里的内容替换掉即可(事先请备份)。查看你的站点你就会发现评论模块变了<br>④个人优化，例：调用中文，评论设置(自己看着办吧)<br>PS:由于[<a href="https://chitanda.org][2]用的主题的血统不正，page.php里的内容一头雾水，强加的评论模块放在哪个位置都无法调用，无奈放入footer.php里，导致整站都可以评论，不过也没什么不好" target="_blank" rel="noopener">https://chitanda.org][2]用的主题的血统不正，page.php里的内容一头雾水，强加的评论模块放在哪个位置都无法调用，无奈放入footer.php里，导致整站都可以评论，不过也没什么不好</a> ∑(O_O；)<br>另外用五分钟把Chitanda.org部署上了SSL。这个是必须的！<br>但Alleysakura.com并未启用，作为一个技术性站点，评论不打算使用第三方系统，数据本地储存，应该有个技术站该有的样子<br><code>目前https://chitanda.org已安装正统ghost</code><br><br>  [1]: <a href="http://hsia.in" target="_blank" rel="noopener">http://hsia.in</a><br>  [2]: <a href="https://chitanda.org" target="_blank" rel="noopener">https://chitanda.org</a><br>
-          <div class="read-more">
-            <a href="/blog/post/disqus/" class="read-more-link">阅读更多</a>
           </div>
         
       
