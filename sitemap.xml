@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.yuyanlab.com/post/vue-project-decoupling/</loc>
+    
+    <lastmod>2019-05-19T14:50:48.189Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.yuyanlab.com/post/firstjob/</loc>
     
     <lastmod>2019-05-10T09:58:39.808Z</lastmod>
@@ -121,14 +128,14 @@
   </url>
   
   <url>
-    <loc>https://www.yuyanlab.com/post/6/</loc>
+    <loc>https://www.yuyanlab.com/post/5/</loc>
     
     <lastmod>2017-12-02T02:45:03.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.yuyanlab.com/post/5/</loc>
+    <loc>https://www.yuyanlab.com/post/6/</loc>
     
     <lastmod>2017-12-02T02:45:03.000Z</lastmod>
     
@@ -142,14 +149,14 @@
   </url>
   
   <url>
-    <loc>https://www.yuyanlab.com/post/9/</loc>
+    <loc>https://www.yuyanlab.com/post/A-Good-MiniLinux/</loc>
     
     <lastmod>2017-12-02T02:45:03.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://www.yuyanlab.com/post/A-Good-MiniLinux/</loc>
+    <loc>https://www.yuyanlab.com/post/9/</loc>
     
     <lastmod>2017-12-02T02:45:03.000Z</lastmod>
     
@@ -170,6 +177,13 @@
   </url>
   
   <url>
+    <loc>https://www.yuyanlab.com/post/CaddyServer/</loc>
+    
+    <lastmod>2017-12-02T02:45:03.000Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.yuyanlab.com/post/DellR410-BIOS/</loc>
     
     <lastmod>2017-12-02T02:45:03.000Z</lastmod>
@@ -178,13 +192,6 @@
   
   <url>
     <loc>https://www.yuyanlab.com/post/Gogs/</loc>
-    
-    <lastmod>2017-12-02T02:45:03.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.yuyanlab.com/post/CaddyServer/</loc>
     
     <lastmod>2017-12-02T02:45:03.000Z</lastmod>
     
@@ -212,7 +219,7 @@
   </url>
   
   <url>
-    <loc>https://www.yuyanlab.com/post/NewStart/</loc>
+    <loc>https://www.yuyanlab.com/post/Kali-raspberry/</loc>
     
     <lastmod>2017-12-02T02:45:03.000Z</lastmod>
     
@@ -226,7 +233,7 @@
   </url>
   
   <url>
-    <loc>https://www.yuyanlab.com/post/Kali-raspberry/</loc>
+    <loc>https://www.yuyanlab.com/post/NewStart/</loc>
     
     <lastmod>2017-12-02T02:45:03.000Z</lastmod>
     
